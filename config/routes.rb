@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'top#index'
 
   # Pickup Recipe Page
-  pickup_recipe 'recipe#pickup'
+  get '/pickup_recipe', to: 'recipe#pickup'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
