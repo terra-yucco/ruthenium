@@ -2,14 +2,15 @@ require 'rakuten_web_service'
 
 class RecipeController < ApplicationController
   def pickup
-    rakuten_api
+    set_rakuten_api_ids
+    
     menus = RakutenWebService::Recipe.ranking(15)
     @menu = menus.first
   end
 
   # Test Page
   def index
-    rakuten_api
+    set_rakuten_api_ids
     
     @large_categories = RakutenWebService::Recipe.large_categories
     @menus = RakutenWebService::Recipe.ranking(15)
@@ -19,7 +20,7 @@ class RecipeController < ApplicationController
 
   private
     # For Rakuten API Setting
-    def rakuten_api
+    def set_rakuten_api_ids
       RakutenWebService.configure do |c|
         c.application_id = ENV["APPID"]
         c.affiliate_id = ENV["AFID"]
