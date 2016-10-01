@@ -8,6 +8,10 @@ class RecipeController < ApplicationController
     @menu = menus.first
   end
 
+  def shopping_list
+
+  end
+
   # Test Page
   def index
     set_rakuten_api_ids
