@@ -1,0 +1,8 @@
+<table>
+  <% @mate.each do |m| %>
+    <tr>
+      <td><%= m[0]['materialName'] %></td>
+      <td><%= m[0]['materialAmount'] %></td>
+    </tr>
+  <% end %>
+</table>

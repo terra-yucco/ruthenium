@@ -1,4 +1,6 @@
 require 'rakuten_web_service'
+require 'open-uri'
+require 'nokogiri'
 
 class RecipeController < ApplicationController
   def pickup
@@ -16,6 +18,27 @@ class RecipeController < ApplicationController
     @menus = RakutenWebService::Recipe.ranking(15)
 
     @title = 'rakuten_recipe_test'
+  end
+
+  # Sample for scrape
+  def scrape
+    url = 'http://recipe.rakuten.co.jp/recipe/1490006283/'
+
+    charset = nil
+    html = open(url) do |f|
+      charset = f.charset # 文字種別を取得
+      f.read # htmlを読み込んで変数htmlに渡す
+    end
+
+    # htmlをパース(解析)してオブジェクトを生成
+    doc = Nokogiri::HTML.parse(html, nil, charset)
+
+    materials = []
+    doc.css("div.materialBox").css("li").each do |material|
+      materials.push(['materialName' => material.css("a").text, "materialAmount" => material.css("p").text])
+    end
+    @mate = materials
+
   end
 
   private
