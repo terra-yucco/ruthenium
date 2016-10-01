@@ -1,0 +1,42 @@
+<h2>レシピカテゴリ表示ページ</h2>
+
+<table>
+  <caption>大カテゴリ一覧</caption>
+  <thead>
+    <tr>
+      <th>カテゴリ番号</th>
+      <th>カテゴリ名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @large_categories.each do |large_category| %> 
+    <tr>
+      <td><%= large_category.id %></td>
+      <td><%= large_category.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>人気メニュー</h3>
+<table>
+  <caption>人気パスタ</caption>
+  <thead>
+    <tr>
+      <th>レシピ名</th>
+      <th>レシピ画像</th>
+      <th>レシピ説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <% @menus.each do |menu| %>
+      <td><%= menu['recipeTitle'] %></td>
+      <td><img src="<%= menu['foodImageUrl'] %>"></td>
+      <td><%= menu['recipeDescription'] %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<div><a href="/">TOPページへ</a></div>
