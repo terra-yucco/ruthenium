@@ -52,3 +52,6 @@ ruby '2.2.5'
 #twitter_bootstrap
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+
+#for scrape
+gem 'nokogiri'
