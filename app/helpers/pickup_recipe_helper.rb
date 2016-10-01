@@ -1,0 +1,2 @@
+module PickupRecipeHelper
+end
