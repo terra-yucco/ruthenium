@@ -9,7 +9,8 @@ class RecipeController < ApplicationController
   end
 
   def shopping_list
-
+    menus = RakutenWebService::Recipe.ranking(15)
+    @menu = menus.first
   end
 
   # Test Page
