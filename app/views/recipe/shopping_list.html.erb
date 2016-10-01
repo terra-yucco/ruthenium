@@ -1,0 +1,23 @@
+<div class="container">
+  
+  <div class="masthead">
+    <h3 class="muted"><%=@menus.first["recipeTitle"] %></h3>
+  </div>
+
+  <div><%= @menus.first["recipeDescription"] %></div>
+
+<%
+  @menus.first["recipeMaterial"].each do |m|
+%>
+  <div class="checkbox">
+    <label><input type="checkbox"><%= m %></label>
+  </div>
+<%
+  end
+%>
+
+  <button class="btn btn-large btn-primary" type="button">
+    <%= link_to '戻る', 'pickup_recipe',:style=>"color:#ffffff;"%>
+  </button>
+
+</div>
