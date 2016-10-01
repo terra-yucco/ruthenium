@@ -1,2 +1,0 @@
-class PickupRecipeController < ApplicationController
-end
