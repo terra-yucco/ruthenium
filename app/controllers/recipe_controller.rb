@@ -3,7 +3,8 @@ require 'rakuten_web_service'
 class RecipeController < ApplicationController
   def pickup
     rakuten_api
-    @menus = RakutenWebService::Recipe.ranking(15)
+    menus = RakutenWebService::Recipe.ranking(15)
+    @menu = menus.first
   end
 
   # Test Page
