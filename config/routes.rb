@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'top#index'
 
+  # Pickup Recipe Page
+  get '/pickup_recipe', to: 'recipe#pickup'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   get 'recipe' => 'recipe#index'
