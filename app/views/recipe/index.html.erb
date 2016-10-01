@@ -18,4 +18,25 @@
   </tbody>
 </table>
 
+<h3>人気メニュー</h3>
+<table>
+  <caption>人気パスタ</caption>
+  <thead>
+    <tr>
+      <th>レシピ名</th>
+      <th>レシピ画像</th>
+      <th>レシピ説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <% @menus.each do |menu| %>
+      <td><%= menu['recipeTitle'] %></td>
+      <td><img src="<%= menu['foodImageUrl'] %>"></td>
+      <td><%= menu['recipeDescription'] %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
 <div><a href="/">TOPページへ</a></div>
