@@ -9,6 +9,8 @@ class RecipeController < ApplicationController
   end
 
   def shopping_list
+    set_rakuten_api_ids
+    
     menus = RakutenWebService::Recipe.ranking(15)
     @menu = menus.entries.last
   end
