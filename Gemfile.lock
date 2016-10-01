@@ -112,6 +112,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.3.0)
+    rakuten_web_service (1.1.1)
     rdoc (4.2.2)
       json (~> 1.4)
     ref (2.0.0)
@@ -163,6 +164,7 @@ DEPENDENCIES
   pg (~> 0.15)
   rails (= 4.2.6)
   rails_12factor
+  rakuten_web_service
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
