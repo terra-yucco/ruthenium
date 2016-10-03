@@ -25,5 +25,7 @@ class RecipeControllerTest < ActionController::TestCase
     result = assigns(:materials)
     assert_not_nil result
     assert (0 < result.length)  # 材料がないということはないはず
+    assert_not_nil result.first[0]['materialName']
+    assert_not_nil result.first[0]['materialAmount']
   end
 end
