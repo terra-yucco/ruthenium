@@ -40,11 +40,11 @@ class RecipeController < ApplicationController
     # htmlをパース(解析)してオブジェクトを生成
     doc = Nokogiri::HTML.parse(html, nil, charset)
 
-    materials = []
-    doc.css("div.materialBox").css("li").each do |material|
-      materials.push(['materialName' => material.css("a").text, "materialAmount" => material.css("p").text])
+    results = []
+    doc.css("div.materialBox").css("li").each do |result|
+      results.push(['materialName' => result.css("a").text, "materialAmount" => result.css("p").text])
     end
-    @mate = materials
+    @materials = results
 
   end
 
