@@ -22,7 +22,8 @@ class RecipeControllerTest < ActionController::TestCase
   test "should get material amount" do
     get :scrape
     assert_response :success
-    assert_not_nil assigns(:mate)
-    assert (0 < assigns(:mate).length)  # 材料がないということはないはず
+    result = assigns(:mate)
+    assert_not_nil result
+    assert (0 < result.length)  # 材料がないということはないはず
   end
 end
