@@ -8,6 +8,7 @@ class RecipeController < ApplicationController
     
     menus = RakutenWebService::Recipe.ranking(15)
     @menu = menus.entries.last
+    @materials = scrape_by_url @menu['recipeUrl']
   end
 
   def shopping_list
