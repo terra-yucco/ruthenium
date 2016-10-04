@@ -7,6 +7,7 @@ class RecipeControllerTest < ActionController::TestCase
     get :pickup
     assert_response :success
     assert_not_nil assigns(:menu)
+    assert_not_nil assigns(:materials)
   end
 
   # 買い物リストを取得できる
