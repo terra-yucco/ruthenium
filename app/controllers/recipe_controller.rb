@@ -29,23 +29,7 @@ class RecipeController < ApplicationController
 
   # Sample for scrape
   def scrape
-    url = 'http://recipe.rakuten.co.jp/recipe/1490006283/'
-
-    charset = nil
-    html = open(url) do |f|
-      charset = f.charset # 文字種別を取得
-      f.read # htmlを読み込んで変数htmlに渡す
-    end
-
-    # htmlをパース(解析)してオブジェクトを生成
-    doc = Nokogiri::HTML.parse(html, nil, charset)
-
-    results = []
-    doc.css("div.materialBox").css("li").each do |result|
-      results.push(['materialName' => result.css("a").text, "materialAmount" => result.css("p").text])
-    end
-    @materials = results
-
+    @materials = scrape_by_url 'http://recipe.rakuten.co.jp/recipe/1490006283/'
   end
 
   private
@@ -58,8 +42,7 @@ class RecipeController < ApplicationController
     end
 
    # Sample for scrape
-    def scrape_by_url
-      url = 'http://recipe.rakuten.co.jp/recipe/1490006283/'
+    def scrape_by_url (url)
 
       charset = nil
       html = open(url) do |f|
@@ -74,7 +57,7 @@ class RecipeController < ApplicationController
       doc.css("div.materialBox").css("li").each do |result|
         results.push(['materialName' => result.css("a").text, "materialAmount" => result.css("p").text])
       end
-      @materials = results
+      return results
     end
 
 end
