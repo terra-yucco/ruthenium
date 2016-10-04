@@ -9,9 +9,8 @@
   <table class="table">
 <%
   @menu["recipeMaterial"].each do |m|
-%>
-  <div class="checkbox">
-    <tr><td><label><input type="checkbox"><%= m %></label></td></tr>
+%
+    <tr><td><div class="checkbox"><label><input type="checkbox"><%= m %></label></td></tr>
   </div>
 <%
   end
