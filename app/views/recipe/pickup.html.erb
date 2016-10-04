@@ -25,8 +25,8 @@
       <h4>材料リスト</h4>
 
       <table class="table">
-	<% @menu['recipeMaterial'].each do |mat| %>
-	<%==  "<tr><td>#{mat}</td></tr>" %>
+	<% @materials.each do |material| %>
+	<%==  "<tr><td>#{material[0]['materialName']} - #{material[0]['materialAmount']}</td></tr>" %>
 	<% end %>
       </table>
     </div>
