@@ -8,11 +8,11 @@
 
   <table class="table">
 <%
-  @Material.each do |material|
+  @materials.each do |material|
 %>
 
 
-    <tr><td><div class="checkbox"><label><input type="checkbox"><%= m %></label>#{material[0]['materialName']} - #{material[0]['materialAmount']}</div></td></tr>
+    <tr><td><div class="checkbox"><label><input type="checkbox"><%= material[0]['materialName'] %> - <%= material[0]['materialAmount'] %></label></div></td></tr>
   
 <%
   end
