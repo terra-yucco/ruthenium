@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/terra-yucco/ruthenium.svg?branch=master)](https://travis-ci.org/terra-yucco/ruthenium)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+
 # これ買ってきてください。
 
 ## エレベータピッチ
