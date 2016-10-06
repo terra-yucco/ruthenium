@@ -15,6 +15,7 @@ class RecipeControllerTest < ActionController::TestCase
     get :shopping_list
     assert_response :success
     assert_not_nil assigns(:menu)
+    assert_not_nil assigns(:materials)
   end
 
   # 材料の数量を取得できる
