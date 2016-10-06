@@ -11,8 +11,6 @@ class RecipeController < ApplicationController
     @@recipe_index = rand(0..3)
   end
   
-  @@recipe_index
-
   def pickup
     set_rakuten_api_ids
     #楽天API発行 カテゴリ15
