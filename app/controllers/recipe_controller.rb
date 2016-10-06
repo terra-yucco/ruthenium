@@ -31,6 +31,7 @@ class RecipeController < ApplicationController
     menu_array = menus.entries
 
     @menu = menu_array[@@random_id]
+    @materials = scrape_by_url @menu['recipeUrl']
   end
 
   # Test Page

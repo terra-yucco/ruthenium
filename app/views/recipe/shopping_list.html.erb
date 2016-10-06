@@ -8,9 +8,11 @@
 
   <table class="table">
 <%
-  @menu["recipeMaterial"].each do |m|
+  @materials.each do |material|
 %>
-    <tr><td><div class="checkbox"><label><input type="checkbox"><%= m %></label></div></td></tr>
+
+
+    <tr><td><div class="checkbox"><label><input type="checkbox"><%= material[0]['materialName'] %> - <%= material[0]['materialAmount'] %></label></div></td></tr>
   
 <%
   end
