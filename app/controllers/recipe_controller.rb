@@ -4,14 +4,14 @@ require 'nokogiri'
 
 class RecipeController < ApplicationController
   
-  @@random_id = nil
+  @@recipe_index = nil
 
   def initialize()
     ##チェンジ機能用
-    @@random_id = rand(0..3)
+    @@recipe_index = rand(0..3)
   end
   
-  @@random_id
+  @@recipe_index
 
   def pickup
     set_rakuten_api_ids
@@ -20,7 +20,7 @@ class RecipeController < ApplicationController
     menu_array = menus.entries
     
     #レシピのランダム化
-    @menu = menu_array[@@random_id]
+    @menu = menu_array[@@recipe_index]
     @materials = scrape_by_url @menu['recipeUrl']
   end
 
@@ -30,7 +30,7 @@ class RecipeController < ApplicationController
     menus = RakutenWebService::Recipe.ranking(15)
     menu_array = menus.entries
 
-    @menu = menu_array[@@random_id]
+    @menu = menu_array[@@recipe_index]
     @materials = scrape_by_url @menu['recipeUrl']
   end
 
