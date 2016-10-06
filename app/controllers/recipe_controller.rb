@@ -8,7 +8,7 @@ class RecipeController < ApplicationController
 
   def initialize()
     ##チェンジ機能用
-    @@recipe_index = rand(0..3)
+    @@recipe_index = get_index_fairly @@recipe_index, 3
   end
   
   def pickup
@@ -56,7 +56,7 @@ class RecipeController < ApplicationController
       end
     end
 
-   # Sample for scrape
+    # Sample for scrape
     def scrape_by_url (url)
 
       charset = nil
@@ -73,6 +73,20 @@ class RecipeController < ApplicationController
         results.push(['materialName' => result.css("a").text, "materialAmount" => result.css("p").text])
       end
       return results
+    end
+
+
+    def get_index_fairly (previous_index, max)
+      if previous_index == nil
+        display_index = rand(0..max)
+      else
+        if previous_index >= max
+          display_index = 0
+        else
+          display_index = previous_index + 1
+        end
+      end
+      return display_index
     end
 
 end
