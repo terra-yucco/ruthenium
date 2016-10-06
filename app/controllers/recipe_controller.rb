@@ -8,7 +8,15 @@ class RecipeController < ApplicationController
 
   def initialize()
     ##チェンジ機能用
-    @@recipe_index = rand(0..3)
+    if @@recipe_index == nil
+      @@recipe_index = rand(0..3)
+    else
+      if @@recipe_index >= 3
+        @@recipe_index = 0
+      else
+        @@recipe_index = @@recipe_index + 1
+      end
+    end
   end
   
   @@recipe_index
