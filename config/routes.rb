@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # Pickup Recipe Page
   get 'pickup_recipe' => 'recipe#pickup'
+  get 'change_recipe' => 'recipe#change'
   get 'scrape' => 'recipe#scrape'
 
   # Example of regular route:

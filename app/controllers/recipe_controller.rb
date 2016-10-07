@@ -20,9 +20,9 @@ class RecipeController < ApplicationController
     @materials = scrape_by_url @menu['recipeUrl']
   end
 
-  def change_recipe
+  def change
     session[:recipe_index] = rand(0..3)
-    pickup
+    redirect_to :action => 'pickup'
   end
 
   def shopping_list
