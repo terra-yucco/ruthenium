@@ -3,19 +3,32 @@ require 'open-uri'
 require 'nokogiri'
 
 class RecipeController < ApplicationController
+  
   def pickup
     set_rakuten_api_ids
-    
+    #楽天API発行 カテゴリ15
     menus = RakutenWebService::Recipe.ranking(15)
-    @menu = menus.entries.last
+    menu_array = menus.entries
+    
+    #レシピのランダム化
+    @recipe_index = rand(0..3)
+    session[:recipe_index] = @recipe_index
+
+    @menu = menu_array[@recipe_index]
     @materials = scrape_by_url @menu['recipeUrl']
   end
 
   def shopping_list
     set_rakuten_api_ids
-    
+    #楽天API発行 カテゴリ15
     menus = RakutenWebService::Recipe.ranking(15)
-    @menu = menus.entries.last
+    menu_array = menus.entries
+
+    @recipe_index = session[:recipe_index]
+    unless @recipe_index then
+      @recipe_index = rand(0..3)
+    end
+    @menu = menu_array[@recipe_index]
     @materials = scrape_by_url @menu['recipeUrl']
   end
 
