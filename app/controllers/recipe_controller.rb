@@ -14,8 +14,16 @@ class RecipeController < ApplicationController
       category = @@default_category
     end
     session[:category] = category
+    
+    #楽天API発行
     menus = RakutenWebService::Recipe.ranking(category)
-    @menu = menus.entries.last
+    menu_array = menus.entries
+    
+    #レシピのランダム化
+    @recipe_index = rand(0..3)
+    session[:recipe_index] = @recipe_index
+
+    @menu = menu_array[@recipe_index]
     @materials = scrape_by_url @menu['recipeUrl']
   end
 
@@ -26,8 +34,16 @@ class RecipeController < ApplicationController
     unless category then
       category = @@default_category
     end
+    
+    #楽天API発行
     menus = RakutenWebService::Recipe.ranking(category)
-    @menu = menus.entries.last
+    menu_array = menus.entries
+
+    @recipe_index = session[:recipe_index]
+    unless @recipe_index then
+      @recipe_index = rand(0..3)
+    end
+    @menu = menu_array[@recipe_index]
     @materials = scrape_by_url @menu['recipeUrl']
   end
 
