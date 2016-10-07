@@ -11,6 +11,9 @@ class RecipeController < ApplicationController
     
     category = params[:category]
     unless category then
+      category = category = session[:category]
+    end
+    unless category then
       category = @@default_category
     end
     session[:category] = category
