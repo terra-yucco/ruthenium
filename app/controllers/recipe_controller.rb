@@ -3,10 +3,18 @@ require 'open-uri'
 require 'nokogiri'
 
 class RecipeController < ApplicationController
+
+  @@ default_category = 15
+
   def pickup
     set_rakuten_api_ids
     
-    menus = RakutenWebService::Recipe.ranking(15)
+    category = params[:category]
+    unless category then
+      category = default_category
+    end
+    session[:category] = category
+    menus = RakutenWebService::Recipe.ranking(category)
     @menu = menus.entries.last
     @materials = scrape_by_url @menu['recipeUrl']
   end
@@ -14,7 +22,11 @@ class RecipeController < ApplicationController
   def shopping_list
     set_rakuten_api_ids
     
-    menus = RakutenWebService::Recipe.ranking(15)
+    category = session[:category]
+    unless category then
+      category = default_category
+    end
+    menus = RakutenWebService::Recipe.ranking(category)
     @menu = menus.entries.last
     @materials = scrape_by_url @menu['recipeUrl']
   end
