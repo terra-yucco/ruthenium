@@ -11,11 +11,18 @@ class RecipeController < ApplicationController
     menu_array = menus.entries
     
     #レシピのランダム化
-    @recipe_index = rand(0..3)
-    session[:recipe_index] = @recipe_index
+    @recipe_index = session[:recipe_index]
+    unless @recipe_index then
+      session[:recipe_index] = rand(0..3)
+    end
 
-    @menu = menu_array[@recipe_index]
+    @menu = menu_array[session[:recipe_index]]
     @materials = scrape_by_url @menu['recipeUrl']
+  end
+
+  def change
+    session[:recipe_index] = rand(0..3)
+    redirect_to :action => 'pickup'
   end
 
   def shopping_list
