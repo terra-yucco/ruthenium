@@ -10,6 +10,15 @@ class RecipeControllerTest < ActionController::TestCase
     assert_not_nil assigns(:materials)
   end
 
+  # カテゴリーを指定してレシピを取得できる
+  test "" do
+    # サラダカテゴリ
+    get :pickup, :category => '18'
+    assert_response :success
+    assert_not_nil assigns(:menu)
+    assert_not_nil assigns(:materials)
+  end
+
   # 買い物リストを取得できる
   test "should get shopping list" do
     get :shopping_list

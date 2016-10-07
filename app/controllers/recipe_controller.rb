@@ -4,14 +4,14 @@ require 'nokogiri'
 
 class RecipeController < ApplicationController
 
-  @@ default_category = 15
+  @@default_category = 15
 
   def pickup
     set_rakuten_api_ids
     
     category = params[:category]
     unless category then
-      category = default_category
+      category = @@default_category
     end
     session[:category] = category
     menus = RakutenWebService::Recipe.ranking(category)
@@ -24,7 +24,7 @@ class RecipeController < ApplicationController
     
     category = session[:category]
     unless category then
-      category = default_category
+      category = @@default_category
     end
     menus = RakutenWebService::Recipe.ranking(category)
     @menu = menus.entries.last
