@@ -18,20 +18,6 @@ class RecipeController < ApplicationController
     @materials = scrape_by_url @menu['recipeUrl']
   end
 
-  def shopping_list
-    set_rakuten_api_ids
-    #楽天API発行 カテゴリ15
-    menus = RakutenWebService::Recipe.ranking(15)
-    menu_array = menus.entries
-
-    @recipe_index = session[:recipe_index]
-    unless @recipe_index then
-      @recipe_index = rand(0..3)
-    end
-    @menu = menu_array[@recipe_index]
-    @materials = scrape_by_url @menu['recipeUrl']
-  end
-
   # Test Page
   def index
     set_rakuten_api_ids
