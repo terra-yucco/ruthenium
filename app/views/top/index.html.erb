@@ -2,8 +2,10 @@
   <div class="top_page">
     <h2 class="form-signin-heading">今日のおすすめ</h2>
     <%= image_tag("top.png") %>
-    <button class="btn btn-block btn-large btn-primary" type="button">
-      <%= link_to '教えて', 'pickup_recipe',:style=>"color:#ffffff;"%>
-    </button>
+    <ul class="nav nav-pills">
+      <li class="active" style="width:100%;text-align:center;">
+        <%= link_to '教えて', 'pickup_recipe',:style=>"color:#ffffff;"%>
+      </li>
+    </ul>
   </div>
 </div> <!-- /container -->
