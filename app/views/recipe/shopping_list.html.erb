@@ -7,16 +7,18 @@
   <div><%= @menu["recipeDescription"] %></div>
 
   <table class="table">
-<%
-  @materials.each do |material|
-%>
-
-
-    <tr><td><div class="checkbox"><label><input type="checkbox"><%= material[0]['materialName'] %> - <%= material[0]['materialAmount'] %></label></div></td></tr>
-  
-<%
-  end
-%>
+  <% @materials.each do |material| %>
+    <tr>
+      <td>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox">
+              <%= material[0]['materialName'] %> - <%= material[0]['materialAmount'] %>
+          </label>
+        </div>
+      </td>
+    </tr>
+  <% end %>
   </table>
 
   <ul class="nav nav-pills">
