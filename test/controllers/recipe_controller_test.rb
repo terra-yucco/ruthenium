@@ -11,7 +11,7 @@ class RecipeControllerTest < ActionController::TestCase
   end
 
   # カテゴリーを指定してレシピを取得できる
-  test "" do
+  test "should get pickup by category" do
     # サラダカテゴリ
     get :pickup, :category => '18'
     assert_response :success
