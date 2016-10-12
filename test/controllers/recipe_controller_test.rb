@@ -10,14 +10,6 @@ class RecipeControllerTest < ActionController::TestCase
     assert_not_nil assigns(:materials)
   end
 
-  # 買い物リストを取得できる
-  test "should get shopping list" do
-    get :shopping_list
-    assert_response :success
-    assert_not_nil assigns(:menu)
-    assert_not_nil assigns(:materials)
-  end
-
   # 材料の数量を取得できる
   # @todo 楽天レシピのページ形式と、掲載先レシピの内容に依存している
   # http://recipe.rakuten.co.jp/recipe/1490006283/
