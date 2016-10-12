@@ -18,6 +18,19 @@
   </tbody>
 </table>
 
+<h2>カテゴリー表示</h2>
+  <form method="get" action="/pickup_recipe">
+  <p>
+    <select name="category">
+    <% @large_categories.each do |large_category| %>
+      <option value="<%= large_category.id %>"><%= large_category.id %> : <%= large_category.name %></option>
+    <% end %>
+    </select>
+    <input type="submit" value="表示">
+  </p>
+</form>
+
+
 <h3>人気メニュー</h3>
 <table>
   <caption>人気パスタ</caption>
