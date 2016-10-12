@@ -10,6 +10,15 @@ class RecipeControllerTest < ActionController::TestCase
     assert_not_nil assigns(:materials)
   end
 
+  # カテゴリーを指定してレシピを取得できる
+  test "should get pickup by category" do
+    # サラダカテゴリ
+    get :pickup, :category => '18'
+    assert_response :success
+    assert_not_nil assigns(:menu)
+    assert_not_nil assigns(:materials)
+  end
+
   # 材料の数量を取得できる
   # @todo 楽天レシピのページ形式と、掲載先レシピの内容に依存している
   # http://recipe.rakuten.co.jp/recipe/1490006283/
