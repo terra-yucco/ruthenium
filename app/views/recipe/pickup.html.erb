@@ -1,45 +1,41 @@
 <div class="container-narrow">
   <div class="masthead">
     <ul class="nav nav-pills pull-right">
-      <li class="active"><%= link_to 'チェンジ！', 'pickup_recipe'%></li>
-      <li class="active"><%= link_to '買い物リスト', 'shopping_list'%></li>
+      <li class="active" id="change_button"><%= link_to 'チェンジ！', 'pickup_recipe'%></li>
     </ul>
-    <h3 class="muted"><%= @menu['recipeTitle'] %></h3>
+    <h3 class="site_title"><%= link_to 'Buy It!', '/'%></h3>
   </div>
 
-  <hr>
+  <div class="cooking_title">
+    <h3 id="title"><%= @menu['recipeTitle'] %></h3>
+    <div id="cooking_time">所要時間<%= @menu['recipeIndication'] %></div>
+  </div>
 
   <h1>
-    <img src="<%= @menu['foodImageUrl'] %>" width="600px" height="600px" class="img-rounded">
+    <img src="<%= @menu['foodImageUrl'] %>" width="600px" height="600px" class="img-rounded" id="cooking_img">
   </h1>
 
   <hr>
+ 
   <div class="row-fluid marketing">
-    <div class="span6">
-      <h4>料理の説明</h4>
-      <p><%= @menu['recipeDescription'] %></p>
-	  
-      <h4>URL</h4>
-      <p><a href="<%= @menu['recipeUrl'] %>">楽天レシピのサイトへ</a></p>
-      
-      <h4>材料リスト</h4>
-
-      <table class="table">
-	<% @materials.each do |material| %>
-	<%==  "<tr><td>#{material[0]['materialName']} - #{material[0]['materialAmount']}</td></tr>" %>
-	<% end %>
-      </table>
-    </div>
-
-    <div class="span6">
-
-      <h4>所要時間</h4>
-      <p><%= @menu['recipeIndication'] %></p>
-
-      <h4>費用</h4>
-      <p><%= @menu['recipeCost'] %></P>
+    <h4><strong>料理の説明</strong></h4>
+    <p><%= @menu['recipeDescription'] %></p>
+    <hr>
+    <h4><strong>材料リスト</strong></h4>
+    <table class="table">
+        <% @materials.each do |material| %>
+        <%==  "<tr><td>#{material[0]['materialName']}</td><td>#{material[0]['materialAmount']}</td></tr>" %>
+        <% end %>
+    </table>    
+    <div id="cooking_cost">費用<%= @menu['recipeCost'] %></div>
+    <hr>      
+    <p>
+      <a href="<%= @menu['recipeUrl'] %>">楽天レシピのサイトへ</a>
+    </p>  
   </div>
-</div>
 
-<hr>
+  <hr>
+  <div class="footer">
+    <p>&copy;AIIT enPiT 2016 Ruthenium</p>
+  </div>   
 </div> <!-- /container -->

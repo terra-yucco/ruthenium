@@ -4,7 +4,7 @@
 
       /* Custom container */
       .container-narrow {
-        margin: 0 auto;
+        margin: -50px auto;
         max-width: 700px;
       }
       .container-narrow > hr {
@@ -32,3 +32,68 @@
       .marketing p + h4 {
         margin-top: 28px;
       }
+      /*PC用*/
+      @media (min-width: 769px) {
+
+            #title{
+                margin-top: 50px;
+                font-size: calc(137.5%);
+            }
+
+            #cooking_img{/*料理の画像*/
+                width:600px;
+                height:600px;
+            }
+
+            #cooking_cost{
+                text-align: right;
+            }
+	　　
+　　　　　　.cooking_title{
+                height: auto;
+            }
+            .site_title{
+                display: inline-block;
+                color: #333;
+                font-family: 'Covered By Your Grace', cursive;
+                font-weight: 400;
+                text-decoration: none;
+                text-align: center;
+                font-size: 55px;
+            }
+            #change_button{
+                margin-top: 40px;
+            }
+        }
+
+        /*スマートフォン用*/
+        @media (max-width: 768px) {
+            .nav > li > a{
+                font-size: calc(90%);
+                padding: 5px 8px;
+            }
+            #title{
+                font-size: calc(140%);
+
+            }
+            #cooking_img{
+                width:100%;
+                height: 100%;
+            }
+            #cooking_cost{
+                text-align: right;
+            }
+	    .site_title{
+                display: inline-block;
+                color: #333;
+                font-family: 'Covered By Your Grace', cursive;
+                font-weight: 400;
+                text-decoration: none;
+                text-align: center;
+                font-size:calc((112.5% + 0.25vw) * 2);
+            }
+            #change_button{
+                margin-top: 30px;
+            }
+        }
+
