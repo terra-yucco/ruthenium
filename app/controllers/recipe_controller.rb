@@ -24,28 +24,7 @@ class RecipeController < ApplicationController
     
     #レシピのランダム化
     @recipe_index = rand(0..3)
-    session[:recipe_index] = @recipe_index
 
-    @menu = menu_array[@recipe_index]
-    @materials = scrape_by_url @menu['recipeUrl']
-  end
-
-  def shopping_list
-    set_rakuten_api_ids
-    
-    category = session[:category]
-    unless category then
-      category = @@default_category
-    end
-    
-    #楽天API発行
-    menus = RakutenWebService::Recipe.ranking(category)
-    menu_array = menus.entries
-
-    @recipe_index = session[:recipe_index]
-    unless @recipe_index then
-      @recipe_index = rand(0..3)
-    end
     @menu = menu_array[@recipe_index]
     @materials = scrape_by_url @menu['recipeUrl']
   end
