@@ -41,7 +41,8 @@ class RecipeController < ApplicationController
 
   # Sample for scrape
   def scrape
-    @materials = scrape_by_url 'http://recipe.rakuten.co.jp/recipe/1490006283/'
+    @materials = scrape_by_url 'http://recipe.rakuten.co.jp/recipe/1570000075/'
+    #@materials = scrape_by_url 'http://recipe.rakuten.co.jp/recipe/1490006283/'
   end
 
   private
@@ -67,7 +68,11 @@ class RecipeController < ApplicationController
 
       results = []
       doc.css("div.materialBox").css("li").each do |result|
-        results.push(['materialName' => result.css("a").text, "materialAmount" => result.css("p").text])
+        materialName = result.css("a").text
+        if materialName == '' then
+          materialName = result.css("div").text
+        end
+        results.push(['materialName' => materialName, "materialAmount" => result.css("p").text])
       end
       return results
     end
