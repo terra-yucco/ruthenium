@@ -18,22 +18,90 @@
   </tbody>
 </table>
 
-<h2>カテゴリー表示</h2>
-  <form method="get" action="/pickup_recipe">
+<table>
+  <caption>中カテゴリ一覧</caption>
+  <thead>
+    <tr>
+      <th>カテゴリ番号</th>
+      <th>カテゴリ名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @medium_categories.each do |medium_category| %>
+    <tr>
+      <td><%= medium_category.parent_category_id %>-<%= medium_category.id %></td>
+      <td><%= medium_category.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table>
+  <caption>小カテゴリ一覧</caption>
+  <thead>
+    <tr>
+      <th>カテゴリ番号</th>
+      <th>カテゴリ名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @small_categories.each do |small_category| %>
+    <tr>
+      <% medium_category = @medium_categories.find {|medium_category| medium_category.id == small_category.parent_category_id.to_i } %>
+      <td><%= medium_category.parent_category_id %>-<%= small_category.parent_category_id %>-<%= small_category.id %></td>
+      <td><%= small_category.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>カテゴリー表示</h3>
+  <form method="get" action="/pickup_recipe" target="_BLANK">
   <p>
     <select name="category">
     <% @large_categories.each do |large_category| %>
       <option value="<%= large_category.id %>"><%= large_category.id %> : <%= large_category.name %></option>
     <% end %>
+
+    <% @medium_categories.each do |medium_category| %>
+      <option value="<%= medium_category.parent_category_id %>-<%= medium_category.id %>"><%= medium_category.parent_category_id %>-<%= medium_category.id %> : <%= medium_category.name %></option>
+    <% end %>
+
+    <% @small_categories.each do |small_category| %>
+      <% medium_category = @medium_categories.find {|medium_category| medium_category.id == small_category.parent_category_id.to_i } %>
+      <option value="<%= medium_category.parent_category_id %>-<%= small_category.parent_category_id %>-<%= small_category.id %>"><%= medium_category.parent_category_id %>-<%= small_category.parent_category_id %>-<%= small_category.id %> : <%= small_category.name %></option>
+    <% end %>
     </select>
-    <input type="submit" value="表示">
+  </p>
+  <p>
+    <input type="submit" value="表示確認">
   </p>
 </form>
 
 
-<h3>人気メニュー</h3>
+<h3>人気メニュー 一覧</h3>
+<form method="get" action="/recipe">
+  <p>
+    <select name="category">
+    <% @large_categories.each do |large_category| %>
+      <option value="<%= large_category.id %>"><%= large_category.id %> : <%= large_category.name %></option>
+    <% end %>
+
+    <% @medium_categories.each do |medium_category| %>
+      <option value="<%= medium_category.parent_category_id %>-<%= medium_category.id %>"><%= medium_category.parent_category_id %>-<%= medium_category.id %> : <%= medium_category.name %></option>
+    <% end %>
+
+    <% @small_categories.each do |small_category| %>
+      <% medium_category = @medium_categories.find {|medium_category| medium_category.id == small_category.parent_category_id.to_i } %>
+        <option value="<%= medium_category.parent_category_id %>-<%= small_category.parent_category_id %>-<%= small_category.id %>"><%= medium_category.parent_category_id %>-<%= small_category.parent_category_id %>-<%= small_category.id %> : <%= small_category.name %></option>
+    <% end %>
+    </select>
+  </p>
+  <p>
+    <input type="submit" value="切替">
+  </p>
 <table>
-  <caption>人気パスタ</caption>
+  <caption><%= @category %></caption>
   <thead>
     <tr>
       <th>レシピ名</th>
