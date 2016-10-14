@@ -3,7 +3,9 @@
     <ul class="nav nav-pills pull-right">
       <li class="active" id="change_button"><%= link_to 'チェンジ！', 'pickup_recipe'%></li>
     </ul>
-    <h3 class="site_title"><%= link_to 'Buy It!', '/'%></h3>
+    <h3 class="site_title">
+      <%= link_to image_tag('logo.png', { :border => '0', :alt => 'Buy It!'}), '/' %>
+    </h3>
   </div>
 
   <div class="cooking_title">
