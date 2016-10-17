@@ -32,9 +32,17 @@ class RecipeController < ApplicationController
   # Test Page
   def index
     set_rakuten_api_ids
-    
+
+    @category = params[:category]
+    unless @category then
+      @category = @default_category
+    end
+
     @large_categories = RakutenWebService::Recipe.large_categories
-    @menus = RakutenWebService::Recipe.ranking(15)
+    @medium_categories = RakutenWebService::Recipe.medium_categories
+    @small_categories = RakutenWebService::Recipe.small_categories
+
+    @menus = RakutenWebService::Recipe.ranking(@category)
 
     @title = 'rakuten_recipe_test'
   end
