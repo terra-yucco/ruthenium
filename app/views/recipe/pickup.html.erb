@@ -1,3 +1,15 @@
+<script type="text/javascript">
+<!--
+function OnOff(lol){
+  if (lol.value == "買った") {
+    lol.value = "買い物リスト";
+  } else {
+    lol.value = lol.value;
+  }
+}
+// -->
+</SCRIPT>
+
 <div class="container-narrow">
   <div class="masthead">
     <ul class="nav nav-pills pull-right">
@@ -40,9 +52,13 @@
         <% end %>
     </table>    
     <div id="cooking_cost">費用<%= @menu['recipeCost'] %></div>
+    <form name="bought-list">
     <ul class="nav nav-pills">
-      <li class="active" id="bought_button"><%= link_to '買った', 'bought' %></li>
+      <li class="active" id="bought_button">
+        <input type="button" value="買った"
+         onClick="OnOff(this)"></li>
     </ul>
+    </form>
     <hr>      
     <p>
       <a href="<%= @menu['recipeUrl'] %>">楽天レシピのサイトへ</a>
