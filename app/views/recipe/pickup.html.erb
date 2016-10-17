@@ -40,6 +40,9 @@
         <% end %>
     </table>    
     <div id="cooking_cost">費用<%= @menu['recipeCost'] %></div>
+    <ul class="nav nav-pills">
+      <li class="active" id="bought_button"><%= link_to '買った', 'bought' %></li>
+    </ul>
     <hr>      
     <p>
       <a href="<%= @menu['recipeUrl'] %>">楽天レシピのサイトへ</a>
