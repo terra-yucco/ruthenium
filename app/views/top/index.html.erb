@@ -1,5 +1,9 @@
+
 <div class="container" id="top_body">
   <div class="top_page">
+    <ul class="nav nav-pills pull-right input type="button" style="position: absolute; right: 20px; top: 7.5px"/>
+    <li class="active" id="bought_button"><%= link_to '買ったものリスト', 'pickup_recipe'%></li>
+    </ul>
     <h2 class="form-signin-heading">今日のおすすめ</h2>
     <%= image_tag("top.png") %>
     <ul class="nav nav-pills">
@@ -29,7 +33,7 @@
       <td><a href="/pickup_recipe?category=17">汁物・スープ</a></td>
       <td><a href="/pickup_recipe?category=36">簡単料理</a></td>
 　　　</tr>
- 　　　<tr>
+　　　<tr>
       <td><a href="/pickup_recipe?category=18">サラダ</a></td>
       <td><a href="/pickup_recipe?category=37">節約料理</a></td>
 　　　</tr>
