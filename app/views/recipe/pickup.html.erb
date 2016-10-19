@@ -1,15 +1,3 @@
-<script type="text/javascript">
-<!--
-function OnOff(lol){
-  if (lol.value == "買った") {
-    lol.value = "買い物リスト";
-  } else {
-    lol.value = lol.value;
-  }
-}
-// -->
-</SCRIPT>
-
 <div class="container-narrow">
   <div class="masthead">
     <ul class="nav nav-pills pull-right">
@@ -54,9 +42,15 @@ function OnOff(lol){
     <div id="cooking_cost">費用<%= @menu['recipeCost'] %></div>
     <form name="bought-list">
     <ul class="nav nav-pills">
-      <li class="active" id="bought_button">
-        <input type="button" value="買った"
-         onClick="OnOff(this)"></li>
+      <% if @bought == true %>
+        <li class="active" id="bought_button" style="text-align:center;">
+          <%= link_to '買った', 'bought', :style=>"color:#ffffff;"%>
+        </li>
+      <% else %>
+        <li class="active" id="bought_list" style="text-align:center;">
+          <%= link_to '買ったものリスト', 'bought_list', :style=>"color:#ffffff;"%>
+        </li>
+      <% end %>
     </ul>
     </form>
     <hr>      
