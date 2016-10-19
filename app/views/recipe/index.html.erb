@@ -4,6 +4,7 @@
   <caption>大カテゴリ一覧</caption>
   <thead>
     <tr>
+      <th>アイコン</th>
       <th>カテゴリ番号</th>
       <th>カテゴリ名</th>
     </tr>
@@ -11,6 +12,11 @@
   <tbody>
     <% @large_categories.each do |large_category| %> 
     <tr>
+      <td>
+        <% if [30, 31, 32, 33, 14, 15, 16, 17, 23, 18, 36, 37].include?(large_category.id.to_i) then %>
+        <%= image_tag(large_category.id + '.png', :size => '32x32') %>
+        <% end %>
+      </td>
       <td><%= large_category.id %></td>
       <td><%= large_category.name %></td>
     </tr>
