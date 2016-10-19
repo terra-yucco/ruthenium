@@ -1,10 +1,14 @@
 <script type="text/javascript" language="javascript">
 function onButtonClick() {
+/*
   alert('Hello');
   $('.material_check').map(function() {
     value = $(this).prop('checked');
     alert(value);
   });
+*/
+  var target = document.forms["bought-list"];
+  target.submit();
 }
 </script>
 
@@ -34,13 +38,13 @@ function onButtonClick() {
     <p><%= @menu['recipeDescription'] %></p>
     <hr>
     <h4><strong>材料リスト</strong></h4>
-    <form name="bought-list">
+    <form name="bought-list" action="bought" method="GET">
     <table class="table">
       <% i = 0 %>
       <% @materials.each do |material| %>
       <tr>
         <td>
-          <input class="material_check" type="checkbox" name="material" id="material<%= i %>">
+          <input class="material_check" type="checkbox" name="material<%= i %>" id="material<%= i %>">
         </td>
         <td>
           <%= "#{material[0]['materialName']}" %>

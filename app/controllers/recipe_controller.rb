@@ -26,6 +26,7 @@ class RecipeController < ApplicationController
 
     #レシピのランダム化
     @recipe_index = rand(0..3)
+    session[:recipe_index] = @recipe_index
 
     @menu = menu_array[@recipe_index]
     @materials = scrape_by_url @menu['recipeUrl']
@@ -57,7 +58,30 @@ class RecipeController < ApplicationController
     end
 
     session[:bought] = true
-    # @todo 買ったものを保存する処理
+
+    set_rakuten_api_ids
+    category = session[:category]
+    recipe_index = session[:recipe_index]
+
+    #楽天API発行
+    menus = RakutenWebService::Recipe.ranking(category)
+    menu_array = menus.entries
+
+    @menu = menu_array[recipe_index]
+    @materials = scrape_by_url @menu['recipeUrl']
+
+    bought_items = Array.new
+    @materials.each_with_index do |material, i|
+      if params['material' + i.to_s] == 'on' then
+        bought_items << [materialName: material[0]['materialName'], materialAmount: material[0]['materialAmount']]
+      end
+    end
+    serial_time = Time.now.to_i
+
+    # @todo Cookieに保存するデータ構造の検討
+    cookies.permanent[:bought_list] = [serial_time, bought_items]
+
+    # @todo 画面遷移の検討
     redirect_to :action => 'pickup'
     return
 
