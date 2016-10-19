@@ -21,7 +21,9 @@ class RecipeController < ApplicationController
     #楽天API発行
     menus = RakutenWebService::Recipe.ranking(category)
     menu_array = menus.entries
-    
+
+    @bought = session[:bought]
+
     #レシピのランダム化
     @recipe_index = rand(0..3)
 
@@ -45,6 +47,20 @@ class RecipeController < ApplicationController
     @menus = RakutenWebService::Recipe.ranking(@category)
 
     @title = 'rakuten_recipe_test'
+  end
+
+  # 買ったことにするアクション
+  def bought
+    if session[:bought] == true
+      redirect_to :action => 'pickup'
+      return
+    end
+
+    session[:bought] = true
+    # @todo 買ったものを保存する処理
+    redirect_to :action => 'pickup'
+    return
+
   end
 
   # Sample for scrape

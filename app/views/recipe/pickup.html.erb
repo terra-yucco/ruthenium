@@ -42,7 +42,7 @@
     <div id="cooking_cost">費用<%= @menu['recipeCost'] %></div>
     <form name="bought-list">
     <ul class="nav nav-pills">
-      <% if @bought == true %>
+      <% if @bought != true %>
         <li class="active" id="bought_button" style="text-align:center;">
           <%= link_to '買った', 'bought', :style=>"color:#ffffff;"%>
         </li>
