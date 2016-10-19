@@ -25,10 +25,11 @@
     <hr>
     <h4><strong>材料リスト</strong></h4>
     <table class="table">
+        <% i = 0 %>
         <% @materials.each do |material| %>
         <tr>
           <td>
-            <input type="checkbox">
+            <input type="checkbox" name="material" value="<%= i %>">
           </td>
           <td>
             <%= "#{material[0]['materialName']}" %>
@@ -37,6 +38,7 @@
             <%= "#{material[0]['materialAmount']}" %>
           </td>
         </tr>
+        <% i = i + 1 %>
         <% end %>
     </table>    
     <div id="cooking_cost">費用<%= @menu['recipeCost'] %></div>
