@@ -1,3 +1,13 @@
+<script type="text/javascript" language="javascript">
+function onButtonClick() {
+  alert('Hello');
+  $('.material_check').map(function() {
+    value = $(this).prop('checked');
+    alert(value);
+  });
+}
+</script>
+
 <div class="container-narrow">
   <div class="masthead">
     <ul class="nav nav-pills pull-right">
@@ -24,29 +34,29 @@
     <p><%= @menu['recipeDescription'] %></p>
     <hr>
     <h4><strong>材料リスト</strong></h4>
+    <form name="bought-list">
     <table class="table">
-        <% i = 0 %>
-        <% @materials.each do |material| %>
-        <tr>
-          <td>
-            <input type="checkbox" name="material" value="<%= i %>">
-          </td>
-          <td>
-            <%= "#{material[0]['materialName']}" %>
-          </td>
-          <td>
-            <%= "#{material[0]['materialAmount']}" %>
-          </td>
-        </tr>
-        <% i = i + 1 %>
-        <% end %>
+      <% i = 0 %>
+      <% @materials.each do |material| %>
+      <tr>
+        <td>
+          <input class="material_check" type="checkbox" name="material" id="material<%= i %>">
+        </td>
+        <td>
+          <%= "#{material[0]['materialName']}" %>
+        </td>
+        <td>
+          <%= "#{material[0]['materialAmount']}" %>
+        </td>
+      </tr>
+      <% i = i + 1 %>
+      <% end %>
     </table>    
     <div id="cooking_cost">費用<%= @menu['recipeCost'] %></div>
-    <form name="bought-list">
     <ul class="nav nav-pills">
       <% if @bought != true %>
         <li class="active" id="bought_button" style="text-align:center;">
-          <%= link_to '買った', 'bought', :style=>"color:#ffffff;"%>
+          <a href="javascript:onButtonClick();" style="color:#ffffff;">買った</a>
         </li>
       <% else %>
         <li class="active" id="bought_list" style="text-align:center;">
