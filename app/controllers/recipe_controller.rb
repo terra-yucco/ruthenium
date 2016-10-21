@@ -22,8 +22,6 @@ class RecipeController < ApplicationController
     menus = RakutenWebService::Recipe.ranking(category)
     menu_array = menus.entries
 
-    @bought = session[:bought]
-
     #レシピのランダム化
     @recipe_index = rand(0..3)
     session[:recipe_index] = @recipe_index
@@ -52,13 +50,6 @@ class RecipeController < ApplicationController
 
   # 買ったことにするアクション
   def bought
-    if session[:bought] == true
-      redirect_to :action => 'pickup'
-      return
-    end
-
-    session[:bought] = true
-
     set_rakuten_api_ids
     category = session[:category]
     recipe_index = session[:recipe_index]
@@ -81,10 +72,11 @@ class RecipeController < ApplicationController
     # @todo Cookieに保存するデータ構造の検討
     cookies.permanent[:bought_list] = [serial_time, bought_items]
 
-    # @todo 画面遷移の検討
-    redirect_to :action => 'pickup'
-    return
+    # 買ったことにする
+    @bought = true
 
+    render action: :pickup
+    return
   end
 
   # Sample for scrape
