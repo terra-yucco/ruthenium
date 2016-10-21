@@ -1,8 +1,5 @@
 <div class="container-narrow">
   <div class="masthead">
-    <ul class="nav nav-pills pull-right">
-      <li class="active" id="change_button"><%= link_to 'チェンジ！', 'pickup_recipe'%></li>
-    </ul>
     <h3 class="site_title">
       <%= link_to image_tag('logo.png', { :border => '0', :alt => 'Buy It!'}), '/' %>
     </h3>
@@ -10,21 +7,11 @@
 
   <div class="cooking_title">
     <h3 id="title"><a href="<%= @menu['recipeUrl'] %>"><%= @menu['recipeTitle'] %></a></h3>
-    <div id="cooking_time">所要時間<%= @menu['recipeIndication'] %></div>
   </div>
-
-  <h1>
-    <img src="<%= @menu['foodImageUrl'] %>" width="600px" height="600px" class="img-rounded" id="cooking_img">
-  </h1>
-
-  <hr>
- 
   <div class="row-fluid marketing">
-    <h4><strong>料理の説明</strong></h4>
-    <p><%= @menu['recipeDescription'] %></p>
     <hr>
-    <h4><strong>材料リスト</strong></h4>
-    <table class="table">
+    <h4><strong>買い物リスト</strong></h4>
+    <table class="table table-striped">
         <% @materials.each do |material| %>
         <tr>
           <td>
@@ -39,7 +26,6 @@
         </tr>
         <% end %>
     </table>    
-    <div id="cooking_cost">費用<%= @menu['recipeCost'] %></div>
     <hr>      
     <p>
       <a href="<%= @menu['recipeUrl'] %>">楽天レシピのサイトへ</a>
