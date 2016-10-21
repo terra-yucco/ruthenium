@@ -50,11 +50,6 @@ class RecipeController < ApplicationController
 
   # 買ったことにするアクション
   def bought
-    if session[:bought] == true
-      redirect_to :action => 'pickup'
-      return
-    end
-
     set_rakuten_api_ids
     category = session[:category]
     recipe_index = session[:recipe_index]
@@ -82,7 +77,6 @@ class RecipeController < ApplicationController
 
     render action: :pickup
     return
-
   end
 
   # Sample for scrape
