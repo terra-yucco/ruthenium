@@ -62,9 +62,11 @@ class RecipeController < ApplicationController
     @materials = scrape_by_url @menu['recipeUrl']
 
     bought_items = Array.new
+    @material_checks = Array.new
     @materials.each_with_index do |material, i|
       if params['material' + i.to_s] == 'on' then
         bought_items << [materialName: material[0]['materialName'], materialAmount: material[0]['materialAmount']]
+        @material_checks.push(i)
       end
     end
     serial_time = Time.now.to_i
