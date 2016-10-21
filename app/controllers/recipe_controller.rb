@@ -76,9 +76,10 @@ class RecipeController < ApplicationController
     # 1週間分の買い物リストのリスト
     weekly_bought_list = cookies.permanent[:weekly_bought_list]
     unless weekly_bought_list then
-      weekly_bought_list = new Array
+      weekly_bought_list = Array.new
     end
     weekly_bought_list.push(bought_list)
+    cookies.permanent[:weekly_bought_list] = weekly_bought_list
 
     # 買ったことにする
     @bought = true
