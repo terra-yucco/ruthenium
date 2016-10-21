@@ -5,7 +5,27 @@ require 'nokogiri'
 class RecipeController < ApplicationController
 
   @@default_category = 15
+  def bought
+    set_rakuten_api_ids
+    
+    category = params[:category]
+    unless category then
+      category = session[:category]
+    end
+    unless category then
+      category = @@default_category
+    end
+    session[:category] = category
+    
+    #楽天API発行
+    menus = RakutenWebService::Recipe.ranking(category)
+    menu_array = menus.entries
+    @recipe_index = rand(0..3)
 
+    @menu = menu_array[@recipe_index]
+    @materials = scrape_by_url @menu['recipeUrl']
+    render "bought_list"
+  end 
   def pickup
     set_rakuten_api_ids
     
