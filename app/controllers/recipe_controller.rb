@@ -5,7 +5,7 @@ require 'nokogiri'
 class RecipeController < ApplicationController
 
   @@default_category = 15
-  def bought
+  def bought_list
     set_rakuten_api_ids
     
     category = params[:category]
