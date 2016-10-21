@@ -44,7 +44,11 @@ function onButtonClick() {
       <% @materials.each do |material| %>
       <tr>
         <td>
-          <input class="material_check" type="checkbox" name="material<%= i %>" id="material<%= i %>">
+          <input class="material_check" type="checkbox" name="material<%= i %>" id="material<%= i %>"
+          <% if @material_checks && @material_checks.include?(i) then %>
+          checked
+          <% end %>
+          >
         </td>
         <td>
           <%= "#{material[0]['materialName']}" %>
