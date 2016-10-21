@@ -6,7 +6,7 @@
   </div>
 
   <div class="cooking_title">
-    <h3 id="title"><a href="<%= @menu['recipeUrl'] %>"><%= @menu['recipeTitle'] %></a></h3>
+    <h3 id="title"><a href="<%= @recipeUrl %>"><%= @recipeTitle %></a></h3>
   </div>
   <div class="row-fluid marketing">
     <hr>
@@ -18,17 +18,17 @@
             <input type="checkbox">
           </td>
           <td>
-            <%= "#{material[0]['materialName']}" %>
+            <%= "#{material[0][:materialName]}" %>
           </td>
           <td>
-            <%= "#{material[0]['materialAmount']}" %>
+            <%= "#{material[0][:materialAmount]}" %>
           </td>
         </tr>
         <% end %>
     </table>    
     <hr>      
     <p>
-      <a href="<%= @menu['recipeUrl'] %>">楽天レシピのサイトへ</a>
+      <a href="<%= @recipeUrl %>">楽天レシピのサイトへ</a>
     </p>  
   </div>
 
