@@ -5,27 +5,20 @@ require 'nokogiri'
 class RecipeController < ApplicationController
 
   @@default_category = 15
-  def bought_list
-    set_rakuten_api_ids
-    
-    category = params[:category]
-    unless category then
-      category = session[:category]
-    end
-    unless category then
-      category = @@default_category
-    end
-    session[:category] = category
-    
-    #楽天API発行
-    menus = RakutenWebService::Recipe.ranking(category)
-    menu_array = menus.entries
-    @recipe_index = rand(0..3)
 
-    @menu = menu_array[@recipe_index]
-    @materials = scrape_by_url @menu['recipeUrl']
+  def bought_list
+
+    bought_list = cookies[:bought_list]
+
+    bought_list_array = bought_list.split('&')
+
+    @recipeTitle = bought_list_array[1]
+    @recipeUrl = bought_list_array[2]
+    @materials = eval(bought_list_array[3])
+    
     render "bought_list"
-  end 
+  end
+
   def pickup
     set_rakuten_api_ids
     
@@ -92,7 +85,7 @@ class RecipeController < ApplicationController
     serial_time = Time.now.to_i
 
     # @todo Cookieに保存するデータ構造の検討
-    cookies.permanent[:bought_list] = [serial_time, bought_items]
+    cookies.permanent[:bought_list] = [serial_time, @menu['recipeTitle'], @menu['recipeUrl'], bought_items]
 
     # 買ったことにする
     @bought = true
