@@ -71,8 +71,17 @@ class RecipeController < ApplicationController
     end
     serial_time = Time.now.to_i
 
-    # @todo Cookieに保存するデータ構造の検討
-    cookies.permanent[:bought_list] = [serial_time, bought_items]
+    # 最新の買い物リスト
+    bought_list = [serial_time, bought_items]
+    cookies.permanent[:bought_list] = bought_list
+
+    # 1週間分の買い物リストのリスト
+    weekly_bought_list = cookies.permanent[:weekly_bought_list]
+    unless weekly_bought_list then
+      weekly_bought_list = Array.new
+    end
+    weekly_bought_list.push(bought_list)
+    cookies.permanent[:weekly_bought_list] = weekly_bought_list
 
     # 買ったことにする
     @bought = true

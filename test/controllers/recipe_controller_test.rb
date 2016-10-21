@@ -33,12 +33,22 @@ class RecipeControllerTest < ActionController::TestCase
   end
 
   # 買ったものの Cookie保存のテスト追加
-  test "should save cookie" do
+  test "should save bought_list cookie" do
     get :pickup
     assert_response :success
 
     # 1つ目の項目をチェック
     get :bought, :material0 => 'on'
     assert_not_nil response.cookies['bought_list']
+  end
+
+  # 買ったものの 1週間分のCookie保存のテスト追加
+  test "should save weekly_bought_list cookie" do
+    get :pickup
+    assert_response :success
+
+    # 1つ目の項目をチェック
+    get :bought, :material0 => 'on'
+    assert_not_nil response.cookies['weekly_bought_list']
   end
 end
