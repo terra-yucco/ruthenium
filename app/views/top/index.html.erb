@@ -1,13 +1,15 @@
 <div class="container" id="top_body">
   <div class="top_page">
-      <ul class="nav nav-pills pull-right input type="button" style="position: absolute; right: 30px; top: 7.5px"/>
-      <li class="active" id="bought_button"><%= link_to '買った物リスト', 'pickup_recipe'%></li>
-      </ul>
-      <h2 class="form-signin-heading">今日のおすすめ</h2>
-      <%= image_tag("top.png") %>
-      <ul class="nav nav-pills">
+    <ul class="nav nav-pills pull-right">
+      <li class="active" id="bought_button">
+        <%= link_to '買った物リスト', 'bought_list' %>
+      </li>
+    </ul>
+    <h2 class="form-signin-heading">今日のおすすめ</h2>
+    <%= image_tag("top.png") %>
+    <ul class="nav nav-pills">
       <li class="active" style="width:100%;text-align:center;">
-        <%= link_to '教えて', 'pickup_recipe',:style=>"color:#ffffff;"%>
+        <%= link_to '教えて', 'pickup_recipe',:style=>"color:#ffffff;" %>
       </li>
     </ul>
   </div>
@@ -15,26 +17,26 @@
     <tr>
       <td><a href="/pickup_recipe?category=30">人気メニュー</a></td>
       <td><a href="/pickup_recipe?category=31">定番の肉料理</a></td>
-　　　</tr>
-　　　<tr>
+    </tr>
+    <tr>
       <td><a href="/pickup_recipe?category=33">卵料理</a></td>
       <td><a href="/pickup_recipe?category=32">定番の魚料理</a></td>
-　　　</tr>
-　　　<tr>
+    </tr>
+    <tr>
       <td><a href="/pickup_recipe?category=14">ご飯もの</a></td>
       <td><a href="/pickup_recipe?category=15">パスタ</a></td>
-    　</tr>
-　　　<tr>
+    </tr>
+    <tr>
       <td><a href="/pickup_recipe?category=16">麺・粉もの料理</a></td>
       <td><a href="/pickup_recipe?category=23">鍋料理</a></td>
-    　</tr>
-　　　<tr>
+    </tr>
+    <tr>
       <td><a href="/pickup_recipe?category=17">汁物・スープ</a></td>
       <td><a href="/pickup_recipe?category=36">簡単料理</a></td>
-　　　</tr>
-　　　<tr>
+    </tr>
+    <tr>
       <td><a href="/pickup_recipe?category=18">サラダ</a></td>
       <td><a href="/pickup_recipe?category=37">節約料理</a></td>
-　　　</tr>
+    </tr>
   </table>
 </div> <!-- /container -->
