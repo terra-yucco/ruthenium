@@ -55,3 +55,7 @@ gem 'twitter-bootstrap-rails'
 
 #for scrape
 gem 'nokogiri'
+
+
+#for graph
+gem 'chart-js-rails'
