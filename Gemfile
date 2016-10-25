@@ -59,3 +59,5 @@ gem 'nokogiri'
 
 #for graph
 gem 'chart-js-rails'
+# Use jquery-UI as the JavaScript library
+gem 'jquery-ui-rails', '~> 4.2.1'
