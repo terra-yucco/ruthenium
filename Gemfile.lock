@@ -41,6 +41,7 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (9.0.6)
+    chart-horizontalbar-rails (1.0.4)
     chart-js-rails (0.1.0)
       railties (> 3.1)
     coffee-rails (4.1.1)
@@ -171,6 +172,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  chart-horizontalbar-rails (~> 1.0, >= 1.0.4)
   chart-js-rails
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)

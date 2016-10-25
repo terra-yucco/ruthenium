@@ -30,7 +30,6 @@ var myChart = new Chart(ctx, {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -64,28 +63,28 @@ var myChart = new Chart(ctx, {
 </script>
   <table class="table">
     <tr>
-      <td><a href="/pickup_recipe?category=30">人気メニュー</a></td>
-      <td><a href="/pickup_recipe?category=31">定番の肉料理</a></td>
+      <td><a href="/pickup_recipe?category=30"><%= image_tag("30.png") %>人気メニュー</a></td>
+      <td><a href="/pickup_recipe?category=31"><%= image_tag("31.png") %>定番の肉料理</a></td>
     </tr>
     <tr>
-      <td><a href="/pickup_recipe?category=33">卵料理</a></td>
-      <td><a href="/pickup_recipe?category=32">定番の魚料理</a></td>
+      <td><a href="/pickup_recipe?category=33"><%= image_tag("33.png") %>卵料理</a></td>
+      <td><a href="/pickup_recipe?category=32"><%= image_tag("32.png") %>定番の魚料理</a></td>
     </tr>
     <tr>
-      <td><a href="/pickup_recipe?category=14">ご飯もの</a></td>
-      <td><a href="/pickup_recipe?category=15">パスタ</a></td>
+      <td><a href="/pickup_recipe?category=14"><%= image_tag("14.png") %>ご飯もの</a></td>
+      <td><a href="/pickup_recipe?category=15"><%= image_tag("15.png") %>パスタ</a></td>
     </tr>
     <tr>
-      <td><a href="/pickup_recipe?category=16">麺・粉もの料理</a></td>
-      <td><a href="/pickup_recipe?category=23">鍋料理</a></td>
+      <td><a href="/pickup_recipe?category=16"><%= image_tag("16.png") %>麺・粉もの料理</a></td>
+      <td><a href="/pickup_recipe?category=23"><%= image_tag("23.png") %>鍋料理</a></td>
     </tr>
     <tr>
-      <td><a href="/pickup_recipe?category=17">汁物・スープ</a></td>
-      <td><a href="/pickup_recipe?category=36">簡単料理</a></td>
+      <td><a href="/pickup_recipe?category=17"><%= image_tag("17.png") %>汁物・スープ</a></td>
+      <td><a href="/pickup_recipe?category=36"><%= image_tag("36.png") %>簡単料理</a></td>
     </tr>
     <tr>
-      <td><a href="/pickup_recipe?category=18">サラダ</a></td>
-      <td><a href="/pickup_recipe?category=37">節約料理</a></td>
+      <td><a href="/pickup_recipe?category=18"><%= image_tag("18.png") %>サラダ</a></td>
+      <td><a href="/pickup_recipe?category=37"><%= image_tag("37.png") %>節約料理</a></td>
     </tr>
   </table>
 </div> <!-- /container -->

@@ -15,3 +15,4 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require Chart
+//= require Chart.HorizontalBar
