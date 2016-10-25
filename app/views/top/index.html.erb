@@ -1,18 +1,25 @@
-<div class="container" id="top_body">
+
+<div class="container-narrow" id="top_body">
+  <div class="masthead">
+    <h3 class="site_title">
+      <%= link_to image_tag('PuzzVeg-logo.png', { :border => '0', :alt => 'Buy It!'}), '/' %>
+    </h3>
+    <hr>
+  </div>
+  <!--
   <div class="top_page">
     <ul class="nav nav-pills pull-right">
       <li class="active" id="bought_button">
         <%= link_to '買った物リスト', 'bought_list' %>
       </li>
     </ul>
-    <h2 class="form-signin-heading">今日のおすすめ</h2>
-      <%= image_tag("top.png") %>
     <ul class="nav nav-pills">
       <li class="active" style="width:100%;text-align:center;">
         <%= link_to '教えて', 'pickup_recipe',:style=>"color:#ffffff;" %>
       </li>
     </ul>
   </div>
+  -->
   <table class="table">
     <tr>
       <td><a href="/pickup_recipe?category=30">人気メニュー</a></td>
