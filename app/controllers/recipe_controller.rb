@@ -100,6 +100,14 @@ class RecipeController < ApplicationController
     #@materials = scrape_by_url 'http://recipe.rakuten.co.jp/recipe/1490006283/'
   end
 
+  def add_vegetables
+    @vagetable_list = ['potato','carrot','cabbage','onion','pepper']
+  end
+
+  def regist_vegetables
+    render :text => "じゃがいも = #{params[:potato]['potato']}, ニンジン = #{params[:carrot]['carrot']}"
+  end
+
   private
     # For Rakuten API Setting
     def set_rakuten_api_ids
