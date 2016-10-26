@@ -101,14 +101,14 @@ class RecipeController < ApplicationController
   end
 
   def add_vegetables
-    vagetable_list = Constants::VEGETALBE_LIST
-    @vegetalbe_stocks = Array.new
+    vagetable_list = Constants::VEGETABLE_LIST
+    @vegetable_stocks = Array.new
     vagetable_list.to_a.each do |vagetable|
-      vegetalbe_number = cookies.permanent['veg_' + vagetable[0].to_s]
-      unless vegetalbe_number then
-        vegetalbe_number = 0
+      vegetable_number = cookies.permanent['veg_' + vagetable[0].to_s]
+      unless vegetable_number then
+        vegetable_number = 0
       end
-      @vegetalbe_stocks << [vagetable[0], vagetable[1], vegetalbe_number]
+      @vegetable_stocks << [vagetable[0], vagetable[1], vegetable_number]
     end
   end
 
@@ -116,7 +116,7 @@ class RecipeController < ApplicationController
     # render :text => "じゃがいも = #{params[:potato]['potato']}, ニンジン = #{params[:carrot]['carrot']}"
     
     # 接頭辞 veg_ をつけて Cookie に保存
-    vagetable_list = Constants::VEGETALBE_LIST
+    vagetable_list = Constants::VEGETABLE_LIST
     vagetable_list.to_a.each do |vagetable|
       cookies.permanent['veg_' + vagetable[0].to_s] = params[vagetable[0]]
     end
