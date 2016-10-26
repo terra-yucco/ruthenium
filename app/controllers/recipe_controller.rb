@@ -101,7 +101,15 @@ class RecipeController < ApplicationController
   end
 
   def add_vegetables
-    @vagetable_list = Constants::VEGETALBE_LIST
+    vagetable_list = Constants::VEGETALBE_LIST
+    @vegetalbe_stocks = Array.new
+    vagetable_list.to_a.each do |vagetable|
+      vegetalbe_number = cookies.permanent['veg_' + vagetable[0].to_s]
+      unless vegetalbe_number then
+        vegetalbe_number = 0
+      end
+      @vegetalbe_stocks << [vagetable[0], vagetable[1], vegetalbe_number]
+    end
   end
 
   def regist_vegetables
