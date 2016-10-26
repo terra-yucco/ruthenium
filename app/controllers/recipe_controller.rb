@@ -101,11 +101,18 @@ class RecipeController < ApplicationController
   end
 
   def add_vegetables
-    @vagetable_list = ['potato','carrot','cabbage','onion','pepper']
+    @vagetable_list = Constants::VEGETALBE_LIST
   end
 
   def regist_vegetables
-    render :text => "じゃがいも = #{params[:potato]['potato']}, ニンジン = #{params[:carrot]['carrot']}"
+    # render :text => "じゃがいも = #{params[:potato]['potato']}, ニンジン = #{params[:carrot]['carrot']}"
+    
+    # 接頭辞 veg_ をつけて Cookie に保存
+    vagetable_list = Constants::VEGETALBE_LIST
+    vagetable_list.to_a.each do |vagetable|
+      cookies.permanent['veg_' + vagetable[0].to_s] = params[vagetable[0]]
+    end
+    redirect_to :root
   end
 
   private
