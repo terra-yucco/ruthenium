@@ -19,6 +19,22 @@ class RecipeControllerTest < ActionController::TestCase
     assert_not_nil assigns(:materials)
   end
 
+  # 野菜登録画面を表示できる
+  test "should show add_vegetables" do
+    get :add_vegetables
+    assert_response :success
+  end
+
+  # 野菜登録ページでのCookie保存
+  test "should save veg numbers" do
+    # 登録（にんじん 2個、玉ねぎ 3個）
+    post :regist_vegetables, :carrot => '2', :onion => '3'
+    assert_response :redirect 
+
+    assert_equal '2', response.cookies['veg_carrot']
+    assert_equal '3', response.cookies['veg_onion']
+  end
+
   # 材料の数量を取得できる
   # @todo 楽天レシピのページ形式と、掲載先レシピの内容に依存している
   # http://recipe.rakuten.co.jp/recipe/1490006283/

@@ -100,6 +100,29 @@ class RecipeController < ApplicationController
     #@materials = scrape_by_url 'http://recipe.rakuten.co.jp/recipe/1490006283/'
   end
 
+  def add_vegetables
+    vagetable_list = Constants::VEGETABLE_LIST
+    @vegetable_stocks = Array.new
+    vagetable_list.to_a.each do |vagetable|
+      vegetable_number = cookies.permanent['veg_' + vagetable[0].to_s]
+      unless vegetable_number then
+        vegetable_number = 0
+      end
+      @vegetable_stocks << [vagetable[0], vagetable[1], vegetable_number]
+    end
+  end
+
+  def regist_vegetables
+    # render :text => "じゃがいも = #{params[:potato]['potato']}, ニンジン = #{params[:carrot]['carrot']}"
+    
+    # 接頭辞 veg_ をつけて Cookie に保存
+    vagetable_list = Constants::VEGETABLE_LIST
+    vagetable_list.to_a.each do |vagetable|
+      cookies.permanent['veg_' + vagetable[0].to_s] = params[vagetable[0]]
+    end
+    redirect_to :root
+  end
+
   private
     # For Rakuten API Setting
     def set_rakuten_api_ids
