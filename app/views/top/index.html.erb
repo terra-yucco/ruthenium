@@ -27,9 +27,9 @@ var ctx = $("#myChart");
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple"],
+        labels: ["人参", "玉ねぎ", "キャベツ", "じゃがいも", "ピーマン"],
         datasets: [{
-            label: '# of Votes',
+            label: '登録された野菜量',
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -45,7 +45,7 @@ var myChart = new Chart(ctx, {
                 'rgba(153, 102, 255, 1)',
             ],
             borderWidth: 1,
-            data: [65, 59, 80, 81, 56, 55],
+            data: [4, 3, 3, 1, 2, 5],
         }]
     },
     options: {
