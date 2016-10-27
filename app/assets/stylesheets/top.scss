@@ -5,7 +5,7 @@
 
       /* Custom container */
       .container-narrow {
-        margin: -50px auto;
+        margin: 0px auto;
         max-width: 700px;
       }
       .container-narrow > hr {
@@ -55,12 +55,6 @@
             }
             .site_title{
                 display: inline-block;
-                color: #333;
-                font-family: 'Covered By Your Grace', cursive;
-                font-weight: 400;
-                text-decoration: none;
-                text-align: center;
-                font-size: 55px;
             }
             #change_button{
                 margin-top: 40px;
