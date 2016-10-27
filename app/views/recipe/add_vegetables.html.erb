@@ -11,11 +11,12 @@ li.title {
 </style>
 
 <%= form_tag('/regist_vagetables', method: :post) do %>
-  <% @vagetable_list.each do |vagetable| %>
+  <% @vegetable_stocks.to_a.each do |vegetable_stock| %>
   <ul class="list-inline">
-    <li class="title"><%= vagetable %></li>
-    <li><%= number_field(vagetable, vagetable) %></li>
+    <li><%= image_tag('veg_' + vegetable_stock[0].to_s + '.png', :size => '32x32') %></li>
+    <li class="title"><%= vegetable_stock[1] %></li>
+    <li><%= number_field_tag(vegetable_stock[0], vegetable_stock[2], :min => 0, :step => 0.5) %></li>
   </ul>
   <% end %>
-  <input type="submit" value="送信" />
+  <input type="submit" value="登録" />
 <% end %>
