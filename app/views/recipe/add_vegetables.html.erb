@@ -1,15 +1,20 @@
 <style>
-<!--
-ul {
-  margin: 2em;
-}
-li.title {
-  margin: 0 1em;
-  width: 100px;
-}
--->
+    ul {
+      margin: 2em;
+    }
+    li.title {
+      margin: 0 1em;
+      width: 100px;
+    }
+    .veg_register_body{
+        text-align:center;
+    }
+    #veg_register_button{
+        height:40px;
+        width:200px;
+    }
 </style>
-
+<div class="veg_register_body">
 <%= form_tag('/regist_vagetables', method: :post) do %>
   <% @vegetable_stocks.to_a.each do |vegetable_stock| %>
   <ul class="list-inline">
@@ -18,9 +23,6 @@ li.title {
     <li><%= number_field_tag(vegetable_stock[0], vegetable_stock[2], :min => 0, :step => 0.5) %></li>
   </ul>
   <% end %>
-  <ul class="nav pull-right">
-    <li class="active">
-      <input type="submit" value="登録" class="btn"/>
-    </li>
-  </ul>
+  <input type="submit" value="登録" class="btn btn-large btn-primary" id="veg_register_button"/>
 <% end %>
+</div>
