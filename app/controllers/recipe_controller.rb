@@ -112,6 +112,7 @@ class RecipeController < ApplicationController
     vagetable_list.to_a.each do |vagetable|
       cookies.permanent['veg_' + vagetable[0].to_s] = params[vagetable[0]]
     end
+    cookies.permanent['veg_saved'] = true
     redirect_to :root
   end
 

@@ -14,10 +14,16 @@
 var ctx = document.getElementById("myChart");
 var ctx = document.getElementById("myChart").getContext("2d");
 var ctx = $("#myChart");
+var label_list = new Array();
+var data_list = new Array();
+<% @vegetable_stocks.to_a.each do |vegetable_stock| %>
+  label_list.push('<%= vegetable_stock[1] %>');
+  data_list.push('<%= vegetable_stock[2] %>')
+<% end %>
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["人参", "玉ねぎ", "キャベツ", "じゃがいも", "ピーマン"],
+        labels: label_list,
         datasets: [{
             label: '登録された野菜量',
             backgroundColor: [
@@ -35,7 +41,7 @@ var myChart = new Chart(ctx, {
                 'rgba(153, 102, 255, 1)',
             ],
             borderWidth: 1,
-            data: [4, 3, 3, 1, 2, 5],
+            data: data_list,
         }]
     },
     options: {
