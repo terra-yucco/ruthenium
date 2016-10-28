@@ -23,7 +23,7 @@ function onButtonClick() {
   </div>
 
   <div class="cooking_title">
-    <h3 id="title"><%= @menu['recipeTitle'] %></h3>
+    <h3 id="title"><a href="<%= @menu['recipeUrl'] %>"><%= @menu['recipeTitle'] %></a></h3>
     <div id="cooking_time">所要時間<%= @menu['recipeIndication'] %></div>
   </div>
 
