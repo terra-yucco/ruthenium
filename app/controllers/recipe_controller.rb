@@ -6,6 +6,19 @@ class RecipeController < ApplicationController
 
   @@default_category = 15
 
+  def bought_list
+
+    bought_list = cookies[:bought_list]
+
+    bought_list_array = bought_list.split('&')
+
+    @recipeTitle = bought_list_array[1]
+    @recipeUrl = bought_list_array[2]
+    @materials = eval(bought_list_array[3])
+    
+    render "bought_list"
+  end
+
   def pickup
     set_rakuten_api_ids
     
@@ -21,9 +34,10 @@ class RecipeController < ApplicationController
     #楽天API発行
     menus = RakutenWebService::Recipe.ranking(category)
     menu_array = menus.entries
-    
+
     #レシピのランダム化
     @recipe_index = rand(0..3)
+    session[:recipe_index] = @recipe_index
 
     @menu = menu_array[@recipe_index]
     @materials = scrape_by_url @menu['recipeUrl']
@@ -45,6 +59,39 @@ class RecipeController < ApplicationController
     @menus = RakutenWebService::Recipe.ranking(@category)
 
     @title = 'rakuten_recipe_test'
+  end
+
+  # 買ったことにするアクション
+  def bought
+    set_rakuten_api_ids
+    category = session[:category]
+    recipe_index = session[:recipe_index]
+
+    #楽天API発行
+    menus = RakutenWebService::Recipe.ranking(category)
+    menu_array = menus.entries
+
+    @menu = menu_array[recipe_index]
+    @materials = scrape_by_url @menu['recipeUrl']
+
+    bought_items = Array.new
+    @material_checks = Array.new
+    @materials.each_with_index do |material, i|
+      if params['material' + i.to_s] == 'on' then
+        bought_items << [materialName: material[0]['materialName'], materialAmount: material[0]['materialAmount']]
+        @material_checks.push(i)
+      end
+    end
+    serial_time = Time.now.to_i
+
+    # @todo Cookieに保存するデータ構造の検討
+    cookies.permanent[:bought_list] = [serial_time, @menu['recipeTitle'], @menu['recipeUrl'], bought_items]
+
+    # 買ったことにする
+    @bought = true
+
+    render action: :pickup
+    return
   end
 
   # Sample for scrape

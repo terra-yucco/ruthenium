@@ -1,4 +1,3 @@
-
 // Place all the styles related to the recipe controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -49,7 +48,7 @@
             #cooking_cost{
                 text-align: right;
             }
-    　　
+	　　
 　　　　　　.cooking_title{
                 height: auto;
             }
@@ -84,7 +83,7 @@
             #cooking_cost{
                 text-align: right;
             }
-        .site_title{
+	    .site_title{
                 display: inline-block;
                 color: #333;
                 font-family: 'Covered By Your Grace', cursive;

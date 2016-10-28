@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   # Pickup Recipe Page
   get 'pickup_recipe' => 'recipe#pickup'
   get 'scrape' => 'recipe#scrape'
+  get 'bought' => 'recipe#bought'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   get 'recipe' => 'recipe#index'
-
+  get 'bought_list' =>'recipe#bought_list'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
