@@ -1,18 +1,10 @@
- <div class="container-narrow" id="top_body">
-  <div class="masthead">
-    <h3 class="site_title">
-      <%= link_to image_tag('PuzzVeg-logo.png', { :border => '0', :alt => 'Buy It!'}), '/' %>
-    </h3>
-    <hr>
-  </div>
-
   <div class="top_page">
     <ul class="nav nav-pills pull-right">
       <li class="active" id="bought_button">
         <%= link_to '使う野菜リスト', 'bought_list' %>
       </li>
       <li class="active">
-        <%= link_to '野菜登録する', 'pickup_recipe',:style=>"color:#ffffff;" %>
+        <%= link_to '野菜登録する', 'add_vegetables',:style=>"color:#ffffff;" %>
       </li>
     </ul>
 
@@ -59,32 +51,27 @@ var myChart = new Chart(ctx, {
 </script>
   <table class="table">
     <tr>
-      <td><a href="/pickup_recipe?category=30"><%= image_tag("30.png") %>人気メニュー</a></td>
-      <td><a href="/pickup_recipe?category=31"><%= image_tag("31.png") %>定番の肉料理</a></td>
+      <td><a href="/pickup_recipe?category=30"><%= image_tag("30.png", :size => '32x32') %>人気メニュー</a></td>
+      <td><a href="/pickup_recipe?category=31"><%= image_tag("31.png", :size => '32x32') %>定番の肉料理</a></td>
     </tr>
     <tr>
-      <td><a href="/pickup_recipe?category=33"><%= image_tag("33.png") %>卵料理</a></td>
-      <td><a href="/pickup_recipe?category=32"><%= image_tag("32.png") %>定番の魚料理</a></td>
+      <td><a href="/pickup_recipe?category=33"><%= image_tag("33.png", :size => '32x32') %>卵料理</a></td>
+      <td><a href="/pickup_recipe?category=32"><%= image_tag("32.png", :size => '32x32') %>定番の魚料理</a></td>
     </tr>
     <tr>
-      <td><a href="/pickup_recipe?category=14"><%= image_tag("14.png") %>ご飯もの</a></td>
-      <td><a href="/pickup_recipe?category=15"><%= image_tag("15.png") %>パスタ</a></td>
+      <td><a href="/pickup_recipe?category=14"><%= image_tag("14.png", :size => '32x32') %>ご飯もの</a></td>
+      <td><a href="/pickup_recipe?category=15"><%= image_tag("15.png", :size => '32x32') %>パスタ</a></td>
     </tr>
     <tr>
-      <td><a href="/pickup_recipe?category=16"><%= image_tag("16.png") %>麺・粉もの料理</a></td>
-      <td><a href="/pickup_recipe?category=23"><%= image_tag("23.png") %>鍋料理</a></td>
+      <td><a href="/pickup_recipe?category=16"><%= image_tag("16.png", :size => '32x32') %>麺・粉もの料理</a></td>
+      <td><a href="/pickup_recipe?category=23"><%= image_tag("23.png", :size => '32x32') %>鍋料理</a></td>
     </tr>
     <tr>
-      <td><a href="/pickup_recipe?category=17"><%= image_tag("17.png") %>汁物・スープ</a></td>
-      <td><a href="/pickup_recipe?category=36"><%= image_tag("36.png") %>簡単料理</a></td>
+      <td><a href="/pickup_recipe?category=17"><%= image_tag("17.png", :size => '32x32') %>汁物・スープ</a></td>
+      <td><a href="/pickup_recipe?category=36"><%= image_tag("36.png", :size => '32x32') %>簡単料理</a></td>
     </tr>
     <tr>
-      <td><a href="/pickup_recipe?category=18"><%= image_tag("18.png") %>サラダ</a></td>
-      <td><a href="/pickup_recipe?category=37"><%= image_tag("37.png") %>節約料理</a></td>
+      <td><a href="/pickup_recipe?category=18"><%= image_tag("18.png", :size => '32x32') %>サラダ</a></td>
+      <td><a href="/pickup_recipe?category=37"><%= image_tag("37.png", :size => '32x32') %>節約料理</a></td>
     </tr>
-  </table>
-  <hr>
-  <div class="footer">
-    <p>&copy;AIIT enPiT 2016 Ruthenium</p>
-  </div>
-</div> <!-- /container -->
+  </table><!-- /container -->

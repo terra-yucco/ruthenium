@@ -11,15 +11,10 @@ function onButtonClick() {
   target.submit();
 }
 </script>
-
-<div class="container-narrow">
   <div class="masthead">
     <ul class="nav nav-pills pull-right">
       <li class="active" id="change_button"><%= link_to 'チェンジ！', 'pickup_recipe'%></li>
     </ul>
-    <h3 class="site_title">
-      <%= link_to image_tag('logo.png', { :border => '0', :alt => 'Buy It!'}), '/' %>
-    </h3>
   </div>
 
   <div class="cooking_title">
@@ -77,10 +72,4 @@ function onButtonClick() {
     <p>
       <a href="<%= @menu['recipeUrl'] %>">楽天レシピのサイトへ</a>
     </p>  
-  </div>
-
-  <hr>
-  <div class="footer">
-    <p>&copy;AIIT enPiT 2016 Ruthenium</p>
-  </div>   
-</div> <!-- /container -->
+  </div><!-- /container -->

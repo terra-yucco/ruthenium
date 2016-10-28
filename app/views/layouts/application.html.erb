@@ -8,8 +8,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+ <div class="container-narrow" id="top_body">
+  <div class="masthead">
+    <div class="site_title">
+      <%= link_to image_tag('PuzzVeg-logo.png', { :border => '0', :alt => 'PuzzVeg', :size => '200x90'}), '/' %>
+    </div>
+    <hr>
+  </div>
 
 <%= yield %>
 
+  <hr>
+  <div class="footer">
+    <p>&copy;AIIT enPiT 2016 Ruthenium</p>
+  </div>
+</div>
 </body>
 </html>
