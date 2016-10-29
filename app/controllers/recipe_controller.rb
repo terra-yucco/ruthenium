@@ -101,15 +101,7 @@ class RecipeController < ApplicationController
   end
 
   def add_vegetables
-    vagetable_list = Constants::VEGETABLE_LIST
-    @vegetable_stocks = Array.new
-    vagetable_list.to_a.each do |vagetable|
-      vegetable_number = cookies.permanent['veg_' + vagetable[0].to_s]
-      unless vegetable_number then
-        vegetable_number = 0
-      end
-      @vegetable_stocks << [vagetable[0], vagetable[1], vegetable_number]
-    end
+    @vegetable_stocks = get_vegetable_stocks cookies
   end
 
   def regist_vegetables
@@ -120,6 +112,7 @@ class RecipeController < ApplicationController
     vagetable_list.to_a.each do |vagetable|
       cookies.permanent['veg_' + vagetable[0].to_s] = params[vagetable[0]]
     end
+    cookies.permanent['veg_saved'] = true
     redirect_to :root
   end
 
@@ -154,5 +147,4 @@ class RecipeController < ApplicationController
       end
       return results
     end
-
 end
