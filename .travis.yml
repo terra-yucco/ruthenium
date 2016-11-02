@@ -5,7 +5,7 @@ deploy:
   provider: heroku
   api_key:
     secure: muuMrYvS1trB5Y+anL+6xW6+en+IVU8P2dTuO1J9kEaXy6CKoAxzTF58/XPMGTyLod8IogekPRLbFFF4rnsRX5XWyFdRXYu3O4TVoTe9bvUgyud50X8YTI7IxJ0Etu6VQT1hd1opTbmRILGgen6yd19UHkQ+UG/BuCoepge6VbFrqh4fTuHPSQkx3mZ4XBRa+sL4gVCUlgWHjix44+nHAk7T6HeVaha7IdSQjqT61EuXZGnqHWKDFSwUInC8D7ZzNgJkR/Rkoozbryh8ZUYwFaqT3pi7Tydt6yHmE2eG2sDsmEUWn6mZT8UIM12/fdG5b4ha9KNzUVC9grCumJdTuI2smm5Pr/oWIR2Gg/clpP87EJz5nOu1Su7eytVYxEIKZyAMCKuYVfMXRYv67K2BG0XiDny+MHkHnB9InEF5ITX75UTToQDwszI6rqfcWTkTy21srTsYyvXMqSqJ8BnAimLWNCHdHNFxkyEE3FEg9epHmWzob3030japa9YDzvXQbiQ0Opb3nHrFsOqnixxqOAL0ST1cG159bBxaaTLo5oSCAoSqvJ2Qo8I7m5jDUd+9koUSG5HpCm/5/KubncJ6zWu/sRptrwMd+T3jIjUyM5tX1Dxt1oYgiAF2R0ip2Sgcp4ClyXupAFyGxIHWmG/d5Z7ZUoKVt+bOp5m5qslbINQ=
-  app: dry-earth-41231
+  app: puzzveg
   on:
     repo: terra-yucco/ruthenium
 addons:
