@@ -57,29 +57,56 @@ var myChart = new Chart(ctx, {
     }
 });
 </script>
+  <hr>
+  <h3 class="recipe_title" style="background-image:url('http://image.space.rakuten.co.jp/d/strg/ctrl/3/07207b43cde4c6476cb8d00ca58f8b3e7be541a9.16.2.3.2.jpg')"><a href="http://recipe.rakuten.co.jp/recipe/1870012115/">★ラブリースパニッシュオムレツ★</a></h3>
   <table class="table">
-    <tr>
-      <td><a href="/pickup_recipe?category=30"><%= image_tag("30.png", :size => '32x32') %>人気メニュー</a></td>
-      <td><a href="/pickup_recipe?category=31"><%= image_tag("31.png", :size => '32x32') %>定番の肉料理</a></td>
+    <tr data-potato="2">
+      <td><%= image_tag('veg_potato.png', :size => '32x32') %></td>
+      <td>じゃがいも</td>
+      <td>2個</td>
     </tr>
-    <tr>
-      <td><a href="/pickup_recipe?category=33"><%= image_tag("33.png", :size => '32x32') %>卵料理</a></td>
-      <td><a href="/pickup_recipe?category=32"><%= image_tag("32.png", :size => '32x32') %>定番の魚料理</a></td>
+    <tr data-onion="0.5">
+      <td><%= image_tag('veg_onion.png', :size => '32x32') %></td>
+      <td>玉ねぎ</td>
+      <td>1/2個</td>
     </tr>
-    <tr>
-      <td><a href="/pickup_recipe?category=14"><%= image_tag("14.png", :size => '32x32') %>ご飯もの</a></td>
-      <td><a href="/pickup_recipe?category=15"><%= image_tag("15.png", :size => '32x32') %>パスタ</a></td>
+    <tr data-pepper="1">
+      <td><%= image_tag('veg_pepper.png', :size => '32x32') %></td>
+      <td>ピーマン</td>
+      <td>1個</td>
     </tr>
-    <tr>
-      <td><a href="/pickup_recipe?category=16"><%= image_tag("16.png", :size => '32x32') %>麺・粉もの料理</a></td>
-      <td><a href="/pickup_recipe?category=23"><%= image_tag("23.png", :size => '32x32') %>鍋料理</a></td>
+  </table>
+  <hr>
+  <h3 class="recipe_title" style="background-image:url('http://image.space.rakuten.co.jp/d/strg/ctrl/3/a7155a36b77ebc7b8292ad3654e27bb696d8590d.97.2.3.2.jpg')"><a href="http://recipe.rakuten.co.jp/recipe/1870012114/">肉じゃが</a></h3>
+  <table class="table">
+    <tr data-potato="3">
+      <td><%= image_tag('veg_potato.png', :size => '32x32') %></td>
+      <td>じゃがいも</td>
+      <td>3個</td>
     </tr>
-    <tr>
-      <td><a href="/pickup_recipe?category=17"><%= image_tag("17.png", :size => '32x32') %>汁物・スープ</a></td>
-      <td><a href="/pickup_recipe?category=36"><%= image_tag("36.png", :size => '32x32') %>簡単料理</a></td>
+    <tr data-onion="1">
+      <td><%= image_tag('veg_onion.png', :size => '32x32') %></td>
+      <td>玉ねぎ</td>
+      <td>1個</td>
     </tr>
-    <tr>
-      <td><a href="/pickup_recipe?category=18"><%= image_tag("18.png", :size => '32x32') %>サラダ</a></td>
-      <td><a href="/pickup_recipe?category=37"><%= image_tag("37.png", :size => '32x32') %>節約料理</a></td>
+    <tr data-carrot="1">
+      <td><%= image_tag('veg_carrot.png', :size => '32x32') %></td>
+      <td>にんじん</td>
+      <td>1個</td>
     </tr>
-  </table><!-- /container -->
+  </table>
+  <script>
+  var message = '使う予定の野菜: ';
+  <% @vegetable_stocks.to_a.each do |vegetable_stock| %>
+  {
+    var vegs = document.querySelectorAll('[data-<%= vegetable_stock[0] %>]');
+    var veg_count = 0;
+    for (veg of vegs) {
+       veg_count += parseFloat(veg.dataset.<%= vegetable_stock[0] %>);
+    }
+    message += '<%= vegetable_stock[1] %> : ' + veg_count + '個 '
+  }
+  <% end %>
+  alert(message);
+  </script>
+  <!-- /container -->

@@ -59,6 +59,12 @@
             #change_button{
                 margin-top: 40px;
             }
+            .recipe_title{
+                height: 160px;
+                background-repeat: no-repeat;
+                background-size: 120px 120px;
+                padding-left: 125px;
+            }
         }
 
         /*スマートフォン用*/
@@ -83,6 +89,12 @@
             }
             #change_button{
                 margin-top: 30px;
+            }
+            .recipe_title{
+              height: 80px;
+              background-repeat: no-repeat;
+              background-size: 80px 80px;
+              padding-left: 85px;
             }
         }
 
