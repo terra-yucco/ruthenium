@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Dishes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Recipe</th>
+      <th>Recipe title</th>
+      <th>Img url</th>
+      <th>Serving</th>
+      <th>Cabbage</th>
+      <th>Carrot</th>
+      <th>Onion</th>
+      <th>Pepper</th>
+      <th>Potato</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dishes.each do |dish| %>
+      <tr>
+        <td><%= dish.recipe_id %></td>
+        <td><%= dish.recipe_title %></td>
+        <td><%= dish.img_url %></td>
+        <td><%= dish.serving %></td>
+        <td><%= dish.cabbage %></td>
+        <td><%= dish.carrot %></td>
+        <td><%= dish.onion %></td>
+        <td><%= dish.pepper %></td>
+        <td><%= dish.potato %></td>
+        <td><%= link_to 'Show', dish %></td>
+        <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
+        <td><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dish', new_dish_path %>

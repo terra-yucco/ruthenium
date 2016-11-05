@@ -1,0 +1,53 @@
+<%= form_for(@dish) do |f| %>
+  <% if @dish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
+
+      <ul>
+      <% @dish.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :recipe_id %><br>
+    <%= f.number_field :recipe_id %>
+  </div>
+  <div class="field">
+    <%= f.label :recipe_title %><br>
+    <%= f.text_field :recipe_title %>
+  </div>
+  <div class="field">
+    <%= f.label :img_url %><br>
+    <%= f.text_field :img_url %>
+  </div>
+  <div class="field">
+    <%= f.label :serving %><br>
+    <%= f.number_field :serving %>
+  </div>
+  <div class="field">
+    <%= f.label :cabbage %><br>
+    <%= f.text_field :cabbage %>
+  </div>
+  <div class="field">
+    <%= f.label :carrot %><br>
+    <%= f.text_field :carrot %>
+  </div>
+  <div class="field">
+    <%= f.label :onion %><br>
+    <%= f.text_field :onion %>
+  </div>
+  <div class="field">
+    <%= f.label :pepper %><br>
+    <%= f.text_field :pepper %>
+  </div>
+  <div class="field">
+    <%= f.label :potato %><br>
+    <%= f.text_field :potato %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

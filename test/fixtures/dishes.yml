@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipe_id: 1
+  recipe_title: MyString
+  img_url: MyString
+  serving: 1
+  cabbage: 1.5
+  carrot: 1.5
+  onion: 1.5
+  pepper: 1.5
+  potato: 1.5
+
+two:
+  recipe_id: 1
+  recipe_title: MyString
+  img_url: MyString
+  serving: 1
+  cabbage: 1.5
+  carrot: 1.5
+  onion: 1.5
+  pepper: 1.5
+  potato: 1.5
