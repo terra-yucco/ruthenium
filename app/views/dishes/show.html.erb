@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recipe:</strong>
+  <%= @dish.recipe_id %>
+</p>
+
+<p>
+  <strong>Recipe title:</strong>
+  <%= @dish.recipe_title %>
+</p>
+
+<p>
+  <strong>Img url:</strong>
+  <%= @dish.img_url %>
+</p>
+
+<p>
+  <strong>Serving:</strong>
+  <%= @dish.serving %>
+</p>
+
+<p>
+  <strong>Cabbage:</strong>
+  <%= @dish.cabbage %>
+</p>
+
+<p>
+  <strong>Carrot:</strong>
+  <%= @dish.carrot %>
+</p>
+
+<p>
+  <strong>Onion:</strong>
+  <%= @dish.onion %>
+</p>
+
+<p>
+  <strong>Pepper:</strong>
+  <%= @dish.pepper %>
+</p>
+
+<p>
+  <strong>Potato:</strong>
+  <%= @dish.potato %>
+</p>
+
+<%= link_to 'Edit', edit_dish_path(@dish) %> |
+<%= link_to 'Back', dishes_path %>
