@@ -13,4 +13,4 @@
 - 「パズル感覚でレシピを探すことができます。」という利点が備わっています。
 
 ## heroku
-https://dry-earth-41231.herokuapp.com/
+https://puzzveg.herokuapp.com/
