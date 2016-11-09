@@ -8,20 +8,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
- <div class="container-narrow" id="top_body">
-  <div class="masthead">
-    <div class="site_title">
-      <%= link_to image_tag('PuzzVeg-logo.png', { :border => '0', :alt => 'PuzzVeg', :size => '200x90'}), '/' %>
-    </div>
-    <hr>
-  </div>
+  <div class="container-narrow" id="top_body">
+
+<% unless @no_header then %>
+  <%= render 'header' %>
+<% end %>
 
 <%= yield %>
 
-  <hr>
-  <div class="footer">
-    <p>&copy;AIIT enPiT 2016 Ruthenium</p>
+<% unless @no_footer then %>
+  <%= render 'footer' %>
+<% end %>
+
   </div>
-</div>
 </body>
 </html>
