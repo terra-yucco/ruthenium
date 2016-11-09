@@ -4,6 +4,7 @@ class TopController < ApplicationController
     if cookies.permanent['veg_saved'] then
       @veg_saved = true
       @vegetable_stocks = get_vegetable_stocks cookies
+      @dishes = Dish.all
     else
       @veg_saved = false
       @no_header = true

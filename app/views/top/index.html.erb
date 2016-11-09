@@ -8,43 +8,21 @@
   </div>
   <canvas id="myChart" width="400" height="400"></canvas>
   <hr>
-  <h3 class="recipe_title" style="background-image:url('http://image.space.rakuten.co.jp/d/strg/ctrl/3/07207b43cde4c6476cb8d00ca58f8b3e7be541a9.16.2.3.2.jpg')"><a href="http://recipe.rakuten.co.jp/recipe/1870012115/">★ラブリースパニッシュオムレツ★</a></h3>
+<% @dishes.each do |dish| %>
+  <h3 class="recipe_title" style="background-image:url('<%= dish.img_url %>')"><a href="http://recipe.rakuten.co.jp/recipe/<%= dish.recipe_id %>/"><%= dish.recipe_title %></a></h3>
   <table class="table">
-    <tr data-potato="2">
-      <td><%= image_tag('veg_potato.png', :size => '32x32') %></td>
-      <td>じゃがいも</td>
-      <td>2個</td>
+  <% @vegetable_stocks.to_a.each do |vegetable_stock| %>
+    <% if (veg_count = dish.send(vegetable_stock[0])) != 0 then %>
+    <tr data-<%= vegetable_stock[0] %>="<%= veg_count %>">
+      <td><%= image_tag('veg_' + vegetable_stock[0].to_s + '.png', :size => '32x32') %></td>
+      <td><%= vegetable_stock[1] %></td>
+      <td><%= veg_count %> 個</td>
     </tr>
-    <tr data-onion="0.5">
-      <td><%= image_tag('veg_onion.png', :size => '32x32') %></td>
-      <td>玉ねぎ</td>
-      <td>1/2個</td>
-    </tr>
-    <tr data-pepper="1">
-      <td><%= image_tag('veg_pepper.png', :size => '32x32') %></td>
-      <td>ピーマン</td>
-      <td>1個</td>
-    </tr>
+    <% end %>
+  <% end %>
   </table>
   <hr>
-  <h3 class="recipe_title" style="background-image:url('http://image.space.rakuten.co.jp/d/strg/ctrl/3/a7155a36b77ebc7b8292ad3654e27bb696d8590d.97.2.3.2.jpg')"><a href="http://recipe.rakuten.co.jp/recipe/1870012114/">肉じゃが</a></h3>
-  <table class="table">
-    <tr data-potato="3">
-      <td><%= image_tag('veg_potato.png', :size => '32x32') %></td>
-      <td>じゃがいも</td>
-      <td>3個</td>
-    </tr>
-    <tr data-onion="1">
-      <td><%= image_tag('veg_onion.png', :size => '32x32') %></td>
-      <td>玉ねぎ</td>
-      <td>1個</td>
-    </tr>
-    <tr data-carrot="1">
-      <td><%= image_tag('veg_carrot.png', :size => '32x32') %></td>
-      <td>にんじん</td>
-      <td>1個</td>
-    </tr>
-  </table>
+<% end %>
 <script>
 var ctx = document.getElementById("myChart");
 var ctx = document.getElementById("myChart").getContext("2d");
