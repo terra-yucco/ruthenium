@@ -8,8 +8,18 @@
   </div>
   <canvas id="myChart" width="400" height="400"></canvas>
   <hr>
-<% @dishes.each do |dish| %>
-  <h3 class="recipe_title" style="background-image:url('<%= dish.img_url %>')"><a href="http://recipe.rakuten.co.jp/recipe/<%= dish.recipe_id %>/"><%= dish.recipe_title %></a> (<%= dish.serving %>人分)</h3>
+
+  <% @dishes.each do |dish| %>
+  <div class="checkbox-inline">
+    <div>
+      <%= check_box 'dish', '1', {}, true, false %>
+        <h3 class="recipe_title"
+            style="background-image:url('<%= dish.img_url %>')">
+          <a href="http://recipe.rakuten.co.jp/recipe/<%= dish.recipe_id %>/"><%= dish.recipe_title %></a>
+          (<%= dish.serving %>人分)
+        </h3>
+    </div>
+  </div>
   <table class="table">
   <% @vegetable_stocks.to_a.each do |vegetable_stock| %>
     <% if (veg_count = dish.send(vegetable_stock[0])) != 0 then %>
