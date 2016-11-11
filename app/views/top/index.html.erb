@@ -54,8 +54,9 @@ var will_list = new Array();//使う予定の野菜
   {
     var vegs = document.querySelectorAll('[data-<%= vegetable_stock[0] %>]');
     var veg_count = 0;
-    for (veg of vegs) {
-       veg_count += parseFloat(veg.dataset.<%= vegetable_stock[0] %>);
+    for (var i = 0; i < vegs.length; i++) {
+      var veg = vegs[i];
+      veg_count += parseFloat(veg.dataset.<%= vegetable_stock[0] %>);
     }
 
     will_list.push(veg_count);

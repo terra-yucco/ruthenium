@@ -61,4 +61,3 @@ gem 'nokogiri'
 gem 'chart-js-rails'
 # Use jquery-UI as the JavaScript library
 gem 'jquery-ui-rails', '~> 4.2.1'
-gem 'chart-horizontalbar-rails', '~> 1.0', '>= 1.0.4'
