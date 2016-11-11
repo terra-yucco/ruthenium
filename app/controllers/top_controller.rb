@@ -14,8 +14,11 @@ class TopController < ApplicationController
             end
         end
 
-        #5件取得
-        @dishes = Dish.take(5)
+        #手持ちの野菜と同じものをレシピから取得
+        veg_num = veg_list.length
+        for i in 0..veg_num do
+            @dishes.push(Dish.where("#{veg_list[i]} > 0"))
+        end
     else
         @veg_saved = false
         @no_header = true
