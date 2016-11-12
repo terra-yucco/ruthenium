@@ -89,7 +89,8 @@ function get_will_list() {
   for (var j = 0; j < veg_list.length; j++) {
     var vegs = document.querySelectorAll('[data-' + veg_list[j] + ']');
     var veg_count = 0;
-    for (veg of vegs) {
+    for (var i = 0; i < vegs.length; i++) {
+      var veg = vegs[i];
       var checkbox = veg.parentNode.parentNode.previousElementSibling.firstElementChild.firstElementChild;
       if (checkbox.checked) {
         veg_count += parseFloat(veg.dataset[veg_list[j]]);
