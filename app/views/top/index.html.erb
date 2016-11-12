@@ -12,7 +12,7 @@
   <% @dishes.each do |dish| %>
   <div class="checkbox-inline">
     <div>
-      <%= check_box 'dish', '1', {}, true, false %>
+      <%= check_box 'dish', '1', {:onchange => 'check_changed()'}, true, false %>
         <h3 class="recipe_title"
             style="background-image:url('<%= dish.img_url %>')">
           <a href="http://recipe.rakuten.co.jp/recipe/<%= dish.recipe_id %>/"><%= dish.recipe_title %></a>
@@ -23,7 +23,7 @@
   <table class="table">
   <% @vegetable_stocks.to_a.each do |vegetable_stock| %>
     <% if (veg_count = dish.send(vegetable_stock[0])) != 0 then %>
-    <tr data-<%= vegetable_stock[0] %>="<%= veg_count %>">
+    <tr data-<%= vegetable_stock[0] %>="<%= veg_count %>"><!-- data-carrot="0.25" のような形式で野菜の数データに持つ -->
       <td><%= image_tag('veg_' + vegetable_stock[0].to_s + '.png', :size => '32x32') %></td>
       <td><%= vegetable_stock[1] %></td>
       <td><%= veg_count %> 個</td>
@@ -39,31 +39,20 @@ var ctx = document.getElementById("myChart");
 var ctx = document.getElementById("myChart").getContext("2d");
 var ctx = $("#myChart");
 
-var label_list = new Array();
+var veg_list = new Array();//野菜の英語名
+var label_list = new Array();//野菜の名前（日本語）
 var data_list = new Array();//手持ちの野菜
-var will_list = new Array();//使う予定の野菜
 
 //手持ちの野菜
 <% @vegetable_stocks.to_a.each do |vegetable_stock| %>
+  veg_list.push('<%= vegetable_stock[0] %>')
   label_list.push('<%= vegetable_stock[1] %>');
   data_list.push('<%= vegetable_stock[2] %>');
 <% end %>
 
 //使う予定の野菜
-//var message = '使う予定の野菜: ';
-<% @vegetable_stocks.to_a.each do |vegetable_stock| %>
-  {
-    var vegs = document.querySelectorAll('[data-<%= vegetable_stock[0] %>]');
-    var veg_count = 0;
-    for (var i = 0; i < vegs.length; i++) {
-      var veg = vegs[i];
-      veg_count += parseFloat(veg.dataset.<%= vegetable_stock[0] %>);
-    }
+var will_list = get_will_list();
 
-    will_list.push(veg_count);
-    //message += '<%= vegetable_stock[1] %> : ' + veg_count + '個 '
-  }
-<% end %>
 var myChart = new Chart(ctx, {
     type: 'radar',
     data: {
@@ -89,6 +78,27 @@ var myChart = new Chart(ctx, {
     }
 });
 
+function check_changed() {
+  var will_list = get_will_list();
+  myChart.data.datasets[1].data = will_list;
+  myChart.update();
+}
+
+function get_will_list() {
+  var will_list = new Array();
+  for (var j = 0; j < veg_list.length; j++) {
+    var vegs = document.querySelectorAll('[data-' + veg_list[j] + ']');
+    var veg_count = 0;
+    for (veg of vegs) {
+      var checkbox = veg.parentNode.parentNode.previousElementSibling.firstElementChild.firstElementChild;
+      if (checkbox.checked) {
+        veg_count += parseFloat(veg.dataset[veg_list[j]]);
+      }
+    }
+    will_list.push(veg_count);
+  }
+  return will_list;
+}
 
 </script>
   <!-- /container -->
