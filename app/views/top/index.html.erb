@@ -73,8 +73,12 @@ var myChart = new Chart(ctx, {
         }
         ]
     },
-    options: {
-
+    options: { 
+      scale: {
+                ticks: {
+                    suggestedMax: 5
+                }
+            }
     }
 });
 

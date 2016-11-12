@@ -1,0 +1,15 @@
+<div>
+  <BR>
+  <BR>
+  <BR>
+  <CENTER>
+  <FONT size="6"><b> レシピ × パズル</b><p>（食材を活用しよう！）</p></FONT> <BR>
+  <CENTER>
+  <p>パズル感覚で、野菜を無駄にしないレシピの組み合わせを探すことができます。</p>
+  <p>まず、手持ちの余っている野菜の数を入力してみましょう！</p>
+  <ul class="nav nav-pills">
+    <li class="active">
+      <%= link_to '野菜登録する', 'add_vegetables',:style=>"color:#ffffff;" style="WIDTH:250px;HEIGHT:35px; %>
+    </li>
+  </ul>
+</div><!-- /container -->
