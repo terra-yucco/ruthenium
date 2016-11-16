@@ -49,9 +49,9 @@ check_celebrate = ->
   # 暫定表示
   if !miss_match && 0 < match_count
     window.scroll(0,0)
-    setTimeout(do ->
-      alert(match_count + "個の野菜が一致しました！")
-    , 500)
+    setTimeout((-> alert(match_count + "個の野菜が一致しました！")),
+      500
+    )
 
 @check_changed = ->
   will_list = get_will_list()
