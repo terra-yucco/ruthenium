@@ -44,11 +44,12 @@ var label_list = new Array();//野菜の名前（日本語）
 var data_list = new Array();//手持ちの野菜
 
 //手持ちの野菜
-<% @vegetable_stocks.to_a.each do |vegetable_stock| %>
-  veg_list.push('<%= vegetable_stock[0] %>')
-  label_list.push('<%= vegetable_stock[1] %>');
-  data_list.push('<%= vegetable_stock[2] %>');
-<% end %>
+for (var i = 0; i < gon.vegetable_stocks.length; i ++) {
+  var vegetable_stock = gon.vegetable_stocks[i];
+  veg_list.push(vegetable_stock[0])
+  label_list.push(vegetable_stock[1]);
+  data_list.push(vegetable_stock[2]);
+}
 
 //使う予定の野菜
 var will_list = get_will_list();
