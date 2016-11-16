@@ -11,7 +11,7 @@ label_list = new Array
 # 手持ちの野菜
 data_list = new Array
 
-# 手持ちの野菜
+# 配列に値を追加
 for vegetable_stock in gon.vegetable_stocks
   veg_list.push(vegetable_stock[0])
   label_list.push(vegetable_stock[1])
