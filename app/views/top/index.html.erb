@@ -110,15 +110,20 @@ function get_will_list() {
 
 function check_celebrate() {
   var match_count = 0; // 一致した数
+  var miss_match = false // 不一致
   for (var i = 0; i < veg_list.length; i++) {
     var current_veg_count = myChart.data.datasets[0].data[i];
     var will_veg_count = myChart.data.datasets[1].data[i];
-    if (will_veg_count != 0 && will_veg_count == current_veg_count) {
-      match_count ++;
+    if (will_veg_count == current_veg_count) {
+      if (will_veg_count != 0) {
+        match_count ++;
+      }
+    } else {
+      miss_match = true;
     }
   }
   // 暫定表示
-  if (0 < match_count) {
+  if (!miss_match && 0 < match_count) {
     window.scroll(0,0);
     setTimeout(function(){
       alert(match_count + "個の野菜が一致しました！");
