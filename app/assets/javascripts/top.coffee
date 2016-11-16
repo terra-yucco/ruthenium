@@ -61,32 +61,32 @@ check_celebrate = ->
   check_celebrate()
 
 @show_chart = ->
-	ctx = document.getElementById("myChart")
-	ctx = document.getElementById("myChart").getContext("2d")
-	ctx = $("#myChart")
+  ctx = document.getElementById("myChart")
+  ctx = document.getElementById("myChart").getContext("2d")
+  ctx = $("#myChart")
 
-	# 使う予定の野菜
-	will_list = get_will_list()
+  # 使う予定の野菜
+  will_list = get_will_list()
 
-	myChart = new Chart(ctx,
-		type: 'radar',
-		data:
-	    labels: label_list,
-	    datasets: [{
-	      label: '手持ちの野菜',
-	      backgroundColor: 'rgba(255, 99, 132, 0.2)',
-	      borderColor: 'rgba(255,99,132,1)',
-	      borderWidth: 1,
-	      data: data_list,
-	    }
-	    {
-	      label: '使う予定の野菜',
-	      backgroundColor: 'rgba(153, 102, 255, 0.2)',
-	      borderColor: 'rgba(153, 102, 255, 1)',
-	      borderWidth: 1,
-	      data: will_list,
-	    }]
-		options:
-		  scale:
-	      ticks:
-	        suggestedMax: 5)
+  myChart = new Chart(ctx,
+    type: 'radar',
+    data:
+      labels: label_list,
+      datasets: [{
+        label: '手持ちの野菜',
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255,99,132,1)',
+        borderWidth: 1,
+        data: data_list,
+      }
+      {
+        label: '使う予定の野菜',
+        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+        borderColor: 'rgba(153, 102, 255, 1)',
+        borderWidth: 1,
+        data: will_list,
+      }]
+    options:
+      scale:
+        ticks:
+          suggestedMax: 5)
