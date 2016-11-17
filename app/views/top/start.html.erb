@@ -1,9 +1,116 @@
-<div>
-  <p>パズル感覚で、野菜を無駄にしないレシピの組み合わせを探すことができます。</p>
-  <p>まず、手持ちの余っている野菜の数を入力してみましょう！</p>
-  <ul class="nav nav-pills">
-    <li class="active">
-      <%= link_to '野菜登録する', 'add_vegetables',:style=>"color:#ffffff;" %>
-    </li>
-  </ul>
-</div><!-- /container -->
+<!DOCTYPE html>
+<html>
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+    <meta charset="utf-8">
+    <title>PuzzVeg</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://peraichi.com/template_files/css/bootstrap_custom.css" rel="stylesheet">
+    <link href="https://peraichi.com/template_files/css/style.css" rel="stylesheet">
+    <link href="https://peraichi.com/css/magnific-popup.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="//peraichi.com/js/const_common.js"></script>
+    <script src="//peraichi.com/js/const_production.js"></script>
+    <script src="//peraichi.com/js/peraichi.js"></script>
+    <script src="//webfont.fontplus.jp/accessor/script/fontplus.js?5qoPx6QyJ8k%3D&aa=1" charset="utf-8"></script>
+  </head>
+
+  <body data-template-name="simple-service" style="padding-top: 0px; overflow: auto;" class="ver2 theme-nature">
+
+    <div class="pera1-section section s_hero" data-section-id="branding-s_hero" data-section-name="トップメイン" id="section-1">
+      <div class="m_hero pera1-bg-editable" data-bg-key="0"
+       style="background-image: url(&quot;//s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/582ab7bb-6818-4245-b574-69150a0000c2/img/1479299276/original.jpg&quot;); background-repeat: no-repeat; background-position: center center; background-size: cover;">
+        <div class="hero_ctt">
+          <h1 class="e_head pera1-editable pera1-removable">PuzzVeg</h1>
+          <div class="e_txt pera1-editable pera1-removable">
+            手持ちの野菜を大切に。楽しいクッキングライフの提案。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section s_btn-large pera1-section" data-section-id="simple/s_simple_btn_large" data-section-name="ボタン（大）" id="section-6">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12">
+            <p class="e_btn">
+             <a href="http://puzzveg.herokuapp.com/add_vegetables" class="btn btn-primary btn-large pera1-editable" target="_self">野菜を登録してみる</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pera1-section section s_card-topImg-3col"
+         data-section-id="branding-s_card_topImg_3col"
+         data-section-name="上画像（3列）" id="section-2">
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col-sm-4">
+            <div class="m_card-topImg">
+              <p class="e_img pera1-removable">
+                <img src="//s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/582ab7bb-6818-4245-b574-69150a0000c2/img/1479299790/original.png" class="pera1-editable">
+              </p>
+              <h3 class="e_head text-center pera1-editable pera1-removable">
+                野菜の登録
+              </h3>
+              <div class="e_txt pera1-editable pera1-removable">
+冷蔵庫に使いさしのお野菜は残っていませんか？　半カットのキャベツ、カレーの残りのニンジン、ジャガイモ…まずは登録してみましょう！
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="m_card-topImg">
+              <p class="e_img pera1-removable">
+                <img src="//s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/582ab7bb-6818-4245-b574-69150a0000c2/img/1479300010/original.png" class="pera1-editable">
+              </p>
+              <h3 class="e_head text-center pera1-editable pera1-removable">
+                組み合わせパズル
+              </h3>
+              <div class="e_txt pera1-editable pera1-removable">
+パズベジは手持ちのお野菜から作れる料理を提案します。手持ちだけで作れるレシピはもちろん、少し買い足せば作れるリッチなレシピもご提案。
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="m_card-topImg">
+              <p class="e_img pera1-removable">
+                <img src="//s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/582ab7bb-6818-4245-b574-69150a0000c2/img/1479299826/original.png" class="pera1-editable">
+              </p>
+              <h3 class="e_head text-center pera1-editable pera1-removable">
+                いざ、調理！
+              </h3>
+              <div class="e_txt pera1-editable pera1-removable">
+もし、時間がちょっとあるなら、ちょっとのお買い物をして、実際にキッチンに立ってみてください。食材を無駄なく使いきる爽快感をぜひあなたに。
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="section s_btn-large pera1-section" data-section-id="branding-s_btn_large" data-section-name="ボタン（大）" id="section-5">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12">
+            <p class="e_btn">
+              <a href="http://puzzveg.herokuapp.com/add_vegetables" class="btn btn-primary btn-large pera1-editable" target="_self">野菜を登録してみる</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pera1-section section s_footer-peraichi-fix">
+      <div class="container-fluid">
+        <div class="e_txt pera1-editable">Copyright 2016 AIIT enPiT Ruthenium</div>
+      </div>
+    </div>
+  </body>
+</html>
