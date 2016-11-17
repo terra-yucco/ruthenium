@@ -89,4 +89,5 @@ check_celebrate = ->
     options:
       scale:
         ticks:
+          min: 0, 
           suggestedMax: 5)
