@@ -44,11 +44,12 @@ var label_list = new Array();//野菜の名前（日本語）
 var data_list = new Array();//手持ちの野菜
 
 //手持ちの野菜
-<% @vegetable_stocks.to_a.each do |vegetable_stock| %>
-  veg_list.push('<%= vegetable_stock[0] %>')
-  label_list.push('<%= vegetable_stock[1] %>');
-  data_list.push('<%= vegetable_stock[2] %>');
-<% end %>
+for (var i = 0; i < gon.vegetable_stocks.length; i ++) {
+  var vegetable_stock = gon.vegetable_stocks[i];
+  veg_list.push(vegetable_stock[0])
+  label_list.push(vegetable_stock[1]);
+  data_list.push(vegetable_stock[2]);
+}
 
 //使う予定の野菜
 var will_list = get_will_list();
@@ -86,6 +87,8 @@ function check_changed() {
   var will_list = get_will_list();
   myChart.data.datasets[1].data = will_list;
   myChart.update();
+
+  check_celebrate();
 }
 
 function get_will_list() {
@@ -103,6 +106,29 @@ function get_will_list() {
     will_list.push(veg_count);
   }
   return will_list;
+}
+
+function check_celebrate() {
+  var match_count = 0; // 一致した数
+  var miss_match = false // 不一致
+  for (var i = 0; i < veg_list.length; i++) {
+    var current_veg_count = myChart.data.datasets[0].data[i];
+    var will_veg_count = myChart.data.datasets[1].data[i];
+    if (will_veg_count == current_veg_count) {
+      if (will_veg_count != 0) {
+        match_count ++;
+      }
+    } else {
+      miss_match = true;
+    }
+  }
+  // 暫定表示
+  if (!miss_match && 0 < match_count) {
+    window.scroll(0,0);
+    setTimeout(function(){
+      alert(match_count + "個の野菜が一致しました！");
+    },500);
+  }
 }
 
 </script>

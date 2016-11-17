@@ -6,6 +6,8 @@ class TopController < ApplicationController
         @vegetable_stocks = get_vegetable_stocks cookies
         @dishes = Array.new
 
+        gon.vegetable_stocks = @vegetable_stocks
+
         #手持ちの野菜から０以外を除外
         veg_list = Array.new
         for i in 0..4 do
