@@ -17,7 +17,7 @@
 
     <div class="pera1-section section s_hero" data-section-id="branding-s_hero" data-section-name="トップメイン" id="section-1">
       <div class="m_hero pera1-bg-editable" data-bg-key="0"
-       style="background-image: url(&quot;//s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/582ab7bb-6818-4245-b574-69150a0000c2/img/1479299276/original.jpg&quot;); background-repeat: no-repeat; background-position: center center; background-size: cover;">
+       style="background-image: url(<%= asset_path "main_image.jpg" %>); background-repeat: no-repeat; background-position: center center; background-size: cover;">
         <div class="hero_ctt">
           <h1 class="e_head pera1-editable pera1-removable">PuzzVeg</h1>
           <div class="e_txt pera1-editable pera1-removable">
@@ -48,7 +48,7 @@
           <div class="col-sm-4">
             <div class="m_card-topImg">
               <p class="e_img pera1-removable">
-                <img src="//s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/582ab7bb-6818-4245-b574-69150a0000c2/img/1479299790/original.png" class="pera1-editable">
+                <%= image_tag("top_potato.png", class: "pera1-editable") %>
               </p>
               <h3 class="e_head text-center pera1-editable pera1-removable">
                 野菜の登録
@@ -62,7 +62,7 @@
           <div class="col-sm-4">
             <div class="m_card-topImg">
               <p class="e_img pera1-removable">
-                <img src="//s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/582ab7bb-6818-4245-b574-69150a0000c2/img/1479300010/original.png" class="pera1-editable">
+                <%= image_tag("top_carrot.png", class: "pera1-editable") %>
               </p>
               <h3 class="e_head text-center pera1-editable pera1-removable">
                 組み合わせパズル
@@ -76,7 +76,7 @@
           <div class="col-sm-4">
             <div class="m_card-topImg">
               <p class="e_img pera1-removable">
-                <img src="//s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/582ab7bb-6818-4245-b574-69150a0000c2/img/1479299826/original.png" class="pera1-editable">
+                <%= image_tag("top_onion.png", class: "pera1-editable") %>
               </p>
               <h3 class="e_head text-center pera1-editable pera1-removable">
                 いざ、調理！
