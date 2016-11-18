@@ -64,6 +64,3 @@ gem 'jquery-ui-rails', '~> 4.2.1'
 
 #for JavaScript
 gem 'gon'
-
-#for Animation
-gem 'animate-rails'

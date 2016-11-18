@@ -5,6 +5,8 @@
       </li>
     </ul>
 
+<a class="btn" data-toggle="modal" href="#modal_celebrate" >Launch Modal</a>
+
   </div>
   <canvas id="myChart" width="400" height="400"></canvas>
   <hr>
@@ -37,4 +39,15 @@
 <script>
   show_chart();
 </script>
+
+<div class="modal fade" id="modal_celebrate">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-body" style="background-color: white;">
+      <p>野菜をぴったり使い切れました。</p>
+      <p>あなたはパズベジマスター<span id="puzzveg_rank">[X]</span>級です。</p>
+      <div class="celebrate-image"><%= image_tag('celebrate.png') %></div>
+      <p class="text-center"><a class="btn btn-primary" data-dismiss="modal" href="#">閉じる</a></p>
+    </div>
+  </div>
+</div>
 <!-- /container -->
