@@ -1,9 +1,112 @@
-<div>
-  <p>パズル感覚で、野菜を無駄にしないレシピの組み合わせを探すことができます。</p>
-  <p>まず、手持ちの余っている野菜の数を入力してみましょう！</p>
-  <ul class="nav nav-pills">
-    <li class="active">
-      <%= link_to '野菜登録する', 'add_vegetables',:style=>"color:#ffffff;" %>
-    </li>
-  </ul>
-</div><!-- /container -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PuzzVeg</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag "pera_bootstrap_custom", media: "all" %>
+    <%= stylesheet_link_tag "pera_style.css", media: "all" %>
+    <%= stylesheet_link_tag "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" %>
+    <script src="//webfont.fontplus.jp/accessor/script/fontplus.js" charset="utf-8"></script>
+  </head>
+
+  <body style="padding-top: 0px; overflow: auto;" class="ver2 theme-nature">
+
+    <div class="section s_hero" id="section-1">
+      <div class="m_hero"
+       style="background-image: url(<%= asset_path "main_image.jpg" %>); background-repeat: no-repeat; background-position: center center; background-size: cover;">
+        <div class="hero_ctt">
+          <h1 class="e_head">PuzzVeg</h1>
+          <div class="e_txt">
+            手持ちの野菜を大切に。楽しいクッキングライフの提案。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section s_btn-large" id="section-6">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12">
+            <p class="e_btn">
+              <a href="/add_vegetables" class="btn btn-primary btn-large" target="_self">
+                野菜を登録してみる
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section s_card-topImg-3col" id="section-2">
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col-sm-4">
+            <div class="m_card-topImg">
+              <p class="e_img">
+                <%= image_tag "top_potato.png" %>
+              </p>
+              <h3 class="e_head text-center">
+                野菜の登録
+              </h3>
+              <div class="e_txt">
+冷蔵庫に使いさしのお野菜は残っていませんか？　半カットのキャベツ、カレーの残りのニンジン、ジャガイモ…まずは登録してみましょう！
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="m_card-topImg">
+              <p class="e_img">
+                <%= image_tag "top_carrot.png" %>
+              </p>
+              <h3 class="e_head text-center">
+                組み合わせパズル
+              </h3>
+              <div class="e_txt">
+パズベジは手持ちのお野菜から作れる料理を提案します。手持ちだけで作れるレシピはもちろん、少し買い足せば作れるリッチなレシピもご提案。
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="m_card-topImg">
+              <p class="e_img">
+                <%= image_tag "top_onion.png" %>
+              </p>
+              <h3 class="e_head text-center">
+                いざ、調理！
+              </h3>
+              <div class="e_txt">
+もし、時間がちょっとあるなら、ちょっとのお買い物をして、実際にキッチンに立ってみてください。食材を無駄なく使いきる爽快感をぜひあなたに。
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="section s_btn-large" id="section-5">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12">
+            <p class="e_btn">
+              <a href="/add_vegetables" class="btn btn-primary btn-large" target="_self">野菜を登録してみる</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section s_footer-peraichi-fix">
+      <div class="container-fluid">
+        <div class="e_txt">Copyright 2016 AIIT enPiT Ruthenium</div>
+      </div>
+    </div>
+  </body>
+</html>

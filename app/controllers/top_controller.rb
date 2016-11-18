@@ -34,10 +34,10 @@ class TopController < ApplicationController
           end
         end
     else
-        @veg_saved = false
-        @no_header = true
-        @no_footer = true
-        render  action: :start
+      @veg_saved = false
+      @no_header = true
+      @no_footer = true
+      render action: :start, layout: false
     end
   end
 
