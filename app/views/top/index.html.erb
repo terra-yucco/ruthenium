@@ -15,7 +15,7 @@
       <%= check_box 'dish', '1', {:onchange => 'check_changed()'}, true, false %>
         <h3 class="recipe_title"
             style="background-image:url('<%= dish.img_url %>')">
-          <a href="http://recipe.rakuten.co.jp/recipe/<%= dish.recipe_id %>/"><%= dish.recipe_title %></a>
+          <%= link_to(dish.recipe_title, "http://recipe.rakuten.co.jp/recipe/#{dish.recipe_id}/", :target => '_blank') %>
           (<%= dish.serving %>人分)
         </h3>
     </div>
