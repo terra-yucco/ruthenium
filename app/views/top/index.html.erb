@@ -20,7 +20,7 @@
         </h3>
     </div>
   </div>
-  <table class="table" style="width:100%;">
+  <table class="table">
   <% @vegetable_stocks.to_a.each do |vegetable_stock| %>
     <% if (veg_count = dish.send(vegetable_stock[0])) != 0 then %>
     <tr data-<%= vegetable_stock[0] %>="<%= veg_count %>"><!-- data-carrot="0.25" のような形式で野菜の数データに持つ -->
