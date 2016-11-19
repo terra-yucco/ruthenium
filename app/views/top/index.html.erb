@@ -10,14 +10,16 @@
   <hr>
 
   <% @dishes.each do |dish| %>
-  <div class="checkbox-inline">
+  <div class="checkbox_inline">
     <div>
       <%= check_box 'dish', '1', {:onchange => 'check_changed()'}, true, false %>
+        <label class="recipe_label">
         <h3 class="recipe_title"
             style="background-image:url('<%= dish.img_url %>')">
           <a href="http://recipe.rakuten.co.jp/recipe/<%= dish.recipe_id %>/"><%= dish.recipe_title %></a>
           (<%= dish.serving %>人分)
         </h3>
+        </label>
     </div>
   </div>
   <table class="table">
