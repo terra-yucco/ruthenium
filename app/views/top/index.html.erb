@@ -10,7 +10,7 @@
   <hr>
 
   <% @dishes.each do |dish| %>
-  <div class="checkbox_inline">
+  <div class="checkbox-inline">
     <div>
       <%= check_box 'dish', '1', {:onchange => 'check_changed()'}, true, false %>
         <label class="recipe_label">
