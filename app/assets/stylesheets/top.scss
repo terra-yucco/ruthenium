@@ -96,8 +96,6 @@
               height: 28px;
               transform: scale(2);
               transform-origin: right bottom;
-              -moz-transform: scale(2);
-              -webkit-transform: scale(2);
               position: relative;
               vertical-align: middle;
             }
@@ -144,8 +142,6 @@
             .checkbox-inline input[type=checkbox] {
               width:  18px;
               height: 18px;
-              -moz-transform: scale(1.4);
-              -webkit-transform: scale(1.4);
               transform: scale(1.4);
               transform-origin: right bottom;
               position: relative;
