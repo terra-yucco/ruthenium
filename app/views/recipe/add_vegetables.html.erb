@@ -20,7 +20,7 @@
   <ul class="list-inline">
     <li><%= image_tag('veg_' + vegetable_stock[0].to_s + '.png', :size => '32x32') %></li>
     <li class="title"><%= vegetable_stock[1] %></li>
-    <li><%= number_field_tag(vegetable_stock[0], vegetable_stock[2], :min => 0, :step => 0.5) %></li>
+    <li><%= number_field_tag(vegetable_stock[0], vegetable_stock[2], :min => 0, :step => 0.01) %></li>
     <li>個</li>
   </ul>
   <% end %>

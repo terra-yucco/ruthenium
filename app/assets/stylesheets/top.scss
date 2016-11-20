@@ -33,6 +33,23 @@
       .marketing p + h4 {
         margin-top: 28px;
       }
+
+      /* link to rakuten recipe page */
+      a.rakuten-recipe {
+        color: #7ABB27;
+        text-decoration: underline;
+      }
+      a.rakuten-recipe:hover {
+        color: #333333;
+        background: #7ABB27;
+        text-decoration: none;
+      }
+      a.rakuten-recipe:after {
+        padding-left: 0.5rem;
+        content: image-url("link_icon.png");
+      }
+      
+
       /*PC用*/
       @media (min-width: 769px) {
 
