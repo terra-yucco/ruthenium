@@ -4,10 +4,18 @@
         <%= link_to '野菜登録する', 'add_vegetables',:style=>"color:#ffffff;" %>
       </li>
     </ul>
-
-  </div>
+</div>
   <canvas id="myChart" width="400" height="400"></canvas>
   <hr>
+   <FORM>
+    <H5><b><FONT size="3"> 選択人数</FONT></b></H5>
+    <SELECT name="nannninnbunn"  size="1" style="width:100px">
+    <OPTION value="hitoribunn"><FONT size="3"> 1人分 </FONT></OPTION>
+    <OPTION value="futaribunn"><FONT size="3"> 2人分 </FONT></OPTION>
+    <OPTION value="sannninnbunnn"><FONT size="3"> 3人分 </FONT></OPTION>
+    <OPTION value="yoninnbunn"><FONT size="3"> 4人分 </FONT></OPTION>
+    </SELECT>
+   </FORM>
 
   <% @dishes.each do |dish| %>
   <div class="checkbox-inline">
