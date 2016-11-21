@@ -48,7 +48,17 @@
         padding-left: 0.5rem;
         content: image-url("link_icon.png");
       }
-      
+
+      /* celebrate dialog */
+      .celebrate-message {
+        text-align: center;
+      }
+      .celebrate-image {
+        text-align: center;
+      }
+      .celebrate-image img {
+        max-width: 100%;
+      }
 
       /*PC用*/
       @media (min-width: 769px) {
