@@ -64,18 +64,26 @@
     <div>
       <h3 class="recipe_title"
           style="background-image:url('<%= dish.img_url %>')">
-        <%= link_to(dish.recipe_title, "http://recipe.rakuten.co.jp/recipe/#{dish.recipe_id}/", :target => '_blank') %>
-        (<%= dish.serving %>人分)
+        <%= link_to(
+          dish.recipe_title, 
+          "http://recipe.rakuten.co.jp/recipe/#{dish.recipe_id}/",
+          :target => '_blank',
+          :class => 'rakuten-recipe'
+        ) %>
+        (<span class="serving-number"><%= dish.serving %></span>人分)
       </h3>
     </div>
   </div>
-  <table class="table">
+  <table class="table" data-original-serving="<%= dish.serving %>">
   <% @vegetable_stocks.to_a.each do |vegetable_stock| %>
     <% if (veg_count = dish.send(vegetable_stock[0])) != 0 then %>
-    <tr data-<%= vegetable_stock[0] %>="<%= veg_count %>"><!-- data-carrot="0.25" のような形式で野菜の数データに持つ -->
+    <tr data-<%= vegetable_stock[0] %>="<%= veg_count %>"
+        data-original-<%= vegetable_stock[0] %>="<%= veg_count %>">
+    <%# data-carrot="0.25" data-original-carrot="0.5"
+        のような形式で人数分計算後の現在の野菜の数と、元の野菜の数をデータに持つ %>
       <td><%= image_tag('veg_' + vegetable_stock[0].to_s + '.png', :size => '32x32') %></td>
       <td><%= vegetable_stock[1] %></td>
-      <td><%= veg_count %> 個</td>
+      <td><span class="veg-count"><%= veg_count %></span> 個</td>
     </tr>
     <% end %>
   <% end %>
