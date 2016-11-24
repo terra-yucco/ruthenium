@@ -6,17 +6,19 @@
     </ul>
 </div>
   <canvas id="myChart" width="400" height="400"></canvas>
-  <hr>
-   <form>
+
+  <form>
     <h5><b><font size="3"> 選択人数</font></b></h5>
     <select name="nannninnbunn"  size="1" style="width:100px" onchange="serving_changed()">
-    <option value="" selected></option>
-    <option value="1"><font size="3"> 1人分 </font></option>
-    <option value="2"><font size="3"> 2人分 </font></option>
-    <option value="3"><font size="3"> 3人分 </font></option>
-    <option value="4"><font size="3"> 4人分 </font></option>
+      <option value="" selected></option>
+      <option value="1"><font size="3"> 1人分 </font></option>
+      <option value="2"><font size="3"> 2人分 </font></option>
+      <option value="3"><font size="3"> 3人分 </font></option>
+      <option value="4"><font size="3"> 4人分 </font></option>
     </select>
-   </form>
+  </form>
+
+  <hr>
 
   <% @dishes.each do |dish| %>
   <div class="checkbox-inline">
