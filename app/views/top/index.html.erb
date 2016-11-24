@@ -24,6 +24,7 @@
   <div class="checkbox-inline">
     <div>
       <%= check_box 'dish', '1', {:onchange => 'check_changed()'}, true, false %>
+        <label class="recipe_label">
         <h3 class="recipe_title"
             style="background-image:url('<%= dish.img_url %>')">
           <%= link_to(
@@ -34,6 +35,7 @@
           ) %>
           (<span class="serving-number"><%= dish.serving %></span>人分)
         </h3>
+      </label>
     </div>
   </div>
   <table class="table" data-original-serving="<%= dish.serving %>">
@@ -51,7 +53,35 @@
   <% end %>
   </table>
   <hr>
-<% end %>
+  <% end %>
+
+
+  <hr>
+  <h2>あと少し材料があれば、こんなレシピも作れます。</h2>
+
+  <% @non_dishes.each do |dish| %>
+  <div>
+    <div>
+      <h3 class="recipe_title"
+          style="background-image:url('<%= dish.img_url %>')">
+        <%= link_to(dish.recipe_title, "http://recipe.rakuten.co.jp/recipe/#{dish.recipe_id}/", :target => '_blank') %>
+        (<%= dish.serving %>人分)
+      </h3>
+    </div>
+  </div>
+  <table class="table">
+  <% @vegetable_stocks.to_a.each do |vegetable_stock| %>
+    <% if (veg_count = dish.send(vegetable_stock[0])) != 0 then %>
+    <tr data-<%= vegetable_stock[0] %>="<%= veg_count %>"><!-- data-carrot="0.25" のような形式で野菜の数データに持つ -->
+      <td><%= image_tag('veg_' + vegetable_stock[0].to_s + '.png', :size => '32x32') %></td>
+      <td><%= vegetable_stock[1] %></td>
+      <td><%= veg_count %> 個</td>
+    </tr>
+    <% end %>
+  <% end %>
+  </table>
+  <hr>
+  <% end %>
 
 <script>
   show_chart();
@@ -60,8 +90,8 @@
 <div class="modal fade" id="modal_celebrate">
   <div class="modal-dialog modal-sm">
     <div class="modal-body" style="background-color: white;">
-      <p>野菜をぴったり使い切れました。</p>
-      <p>あなたはパズベジマスター<span id="puzzveg_rank">[X]</span>段です。</p>
+      <p class="celebrate-message">野菜をぴったり使い切れました。</p>
+      <p class="celebrate-message">あなたはパズベジマスター<span id="puzzveg_rank">[X]</span>段です。</p>
       <div class="celebrate-image"><%= image_tag('celebrate.png') %></div>
       <p class="text-center"><a class="btn btn-primary" data-dismiss="modal" href="#">閉じる</a></p>
     </div>
