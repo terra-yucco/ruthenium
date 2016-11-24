@@ -16,6 +16,7 @@ class TopController < ApplicationController
     @veg_saved = true
     @vegetable_stocks = get_vegetable_stocks cookies
     @dishes = Array.new
+    @non_dishes = Array.new
 
     gon.vegetable_stocks = @vegetable_stocks
 
@@ -33,8 +34,9 @@ class TopController < ApplicationController
     # 手持ちの野菜と同じものをレシピから取得
     ## 所持している野菜の種類数
     veg_num = veg_list.length
-    ## veg_ids新規配列
+
     veg_ids = Array.new
+    non_veg_ids = Array.new
 
     ## 手持ちの野菜を一つずつ、その野菜を含むレシピを探す
     for i in 0..(veg_num - 1) do
@@ -48,12 +50,12 @@ class TopController < ApplicationController
 
         ## 持ってない野菜が材料にあるか
         non_veg_list.each do |nonveg|
-          ## 持ってない野菜があったら表示用に入れない
+          ## 持ってない野菜があったらそれを記録
           if dish[nonveg] > 0 then
             miss = miss + 1
-            break
           end
         end
+
         if miss == 0 then
           ## 既にメニューが登録済なら何もしない
           if veg_ids.include?(dish.id) then
@@ -61,6 +63,11 @@ class TopController < ApplicationController
           else
             veg_ids.push(dish.id)
             @dishes.push(dish)
+          end
+        else
+          if ! non_veg_ids.include?(dish.id) then
+            non_veg_ids.push(dish.id)
+            @non_dishes.push(dish)
           end
         end
       end
