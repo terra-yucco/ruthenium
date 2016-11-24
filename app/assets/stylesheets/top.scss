@@ -33,6 +33,33 @@
       .marketing p + h4 {
         margin-top: 28px;
       }
+
+      /* link to rakuten recipe page */
+      a.rakuten-recipe {
+        color: #7ABB27;
+        text-decoration: underline;
+      }
+      a.rakuten-recipe:hover {
+        color: #333333;
+        background: #7ABB27;
+        text-decoration: none;
+      }
+      a.rakuten-recipe:after {
+        padding-left: 0.5rem;
+        content: image-url("link_icon.png");
+      }
+
+      /* celebrate dialog */
+      .celebrate-message {
+        text-align: center;
+      }
+      .celebrate-image {
+        text-align: center;
+        img {
+          max-width: 100%;
+        }
+      }
+
       /*PC用*/
       @media (min-width: 769px) {
 
@@ -60,10 +87,27 @@
                 margin-top: 40px;
             }
             .recipe_title{
-                height: 160px;
+                height: 120px;
                 background-repeat: no-repeat;
                 background-size: 120px 120px;
                 padding-left: 125px;
+                font-size: 140%;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+            .recipe_label {
+              width: 95%;
+            }
+            .checkbox-inline {
+              margin-left: 12px;
+            }
+            .checkbox-inline input[type=checkbox] {
+              width:  20px;
+              height: 20px;
+              transform: scale(2.0);
+              transform-origin: right top;
+              position: relative;
+              vertical-align: top;
             }
         }
 
@@ -91,10 +135,27 @@
                 margin-top: 30px;
             }
             .recipe_title{
-              height: 80px;
+              height: 60px;
               background-repeat: no-repeat;
-              background-size: 80px 80px;
-              padding-left: 85px;
+              background-size: 60px 60px;
+              padding-left: 65px;
+              font-size: 140%;
+              margin-top: 0px;
+              margin-bottom: 0px;
+            }
+            .recipe_label {
+              width: 95%;
+            }
+            .checkbox-inline {
+              margin-left: 12px;
+            }
+            .checkbox-inline input[type=checkbox] {
+              width:  16px;
+              height: 16px;
+              transform: scale(1.6);
+              transform-origin: right top;
+              position: relative;
+              vertical-align: top;
             }
         }
 
