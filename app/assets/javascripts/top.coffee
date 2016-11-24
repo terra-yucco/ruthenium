@@ -23,7 +23,7 @@ myChart = null
 # 数字(number)を小数点以下の有効桁数(digit)で四捨五入した数値を返す
 format_froat = (number, digit) ->
   pow = Math.pow(10, digit)
-  return Math.round(number * pow) / pow
+  return parseFloat(Math.round(number * pow) / pow).toFixed(digit)
 
 # 使い予定の野菜の数リストを取得
 get_will_list = ->
