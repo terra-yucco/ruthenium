@@ -21,6 +21,7 @@
   <div class="checkbox-inline">
     <div>
       <%= check_box 'dish', '1', {:onchange => 'check_changed()'}, true, false %>
+        <label class="recipe_label">
         <h3 class="recipe_title"
             style="background-image:url('<%= dish.img_url %>')">
           <%= link_to(
@@ -31,6 +32,7 @@
           ) %>
           (<%= dish.serving %>人分)
         </h3>
+        </label>
     </div>
   </div>
   <table class="table">
