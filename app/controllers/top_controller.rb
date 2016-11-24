@@ -19,25 +19,49 @@ class TopController < ApplicationController
 
     gon.vegetable_stocks = @vegetable_stocks
 
-    #手持ちの野菜から０以外を除外
+    # 所持している野菜と所持していない野菜に振り分ける
     veg_list = Array.new
+    non_veg_list = Array.new
     for i in 0..4 do
       if @vegetable_stocks[i][2] != '0' then
         veg_list.push(@vegetable_stocks[i][0])
+      else
+        non_veg_list.push(@vegetable_stocks[i][0])
       end
     end
 
-    #手持ちの野菜と同じものをレシピから取得
+    # 手持ちの野菜と同じものをレシピから取得
+    ## 所持している野菜の種類数
     veg_num = veg_list.length
+    ## veg_ids新規配列
     veg_ids = Array.new
 
-    for i in 0..veg_num - 1 do
+    ## 手持ちの野菜を一つずつ、その野菜を含むレシピを探す
+    for i in 0..(veg_num - 1) do
       dish_result = Dish.where("#{veg_list[i]} > 0")
+
+      ## レシピ単位ループ
       dish_result.each do |dish|
-        if veg_ids.include?(dish.id) then
-        else
-          veg_ids.push(dish.id)
-          @dishes.push(dish)
+
+        ## ない野菜カウンタ
+        miss = 0
+
+        ## 持ってない野菜が材料にあるか
+        non_veg_list.each do |nonveg|
+          ## 持ってない野菜があったら表示用に入れない
+          if dish[nonveg] > 0 then
+            miss = miss + 1
+            break
+          end
+        end
+        if miss == 0 then
+          ## 既にメニューが登録済なら何もしない
+          if veg_ids.include?(dish.id) then
+          ## メニュー未登録なら表示用変数に追加
+          else
+            veg_ids.push(dish.id)
+            @dishes.push(dish)
+          end
         end
       end
     end
