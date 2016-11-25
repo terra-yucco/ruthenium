@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'add_vegetables' => 'recipe#add_vegetables'
   post 'regist_vagetables' => 'recipe#regist_vegetables'
 
+  get 'discript' => "top#discript"
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
