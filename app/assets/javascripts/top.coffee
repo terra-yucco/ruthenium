@@ -39,7 +39,11 @@ check_celebrate = ->
   miss_match = false
   for veg_name, i in veg_list
     current_veg_count = parseFloat(myChart.data.datasets[0].data[i])
+    if isNaN(current_veg_count)
+      current_veg_count = 0
     will_veg_count = parseFloat(myChart.data.datasets[1].data[i])
+    if isNaN(will_veg_count)
+      will_veg_count = 0
     if will_veg_count == current_veg_count
       if will_veg_count != 0
         match_count = match_count + 1

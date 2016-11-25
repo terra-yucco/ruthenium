@@ -24,7 +24,7 @@ class TopController < ApplicationController
     veg_list = Array.new
     non_veg_list = Array.new
     for i in 0..4 do
-      if @vegetable_stocks[i][2] != '0' then
+      if @vegetable_stocks[i][2].present? && @vegetable_stocks[i][2] != '0' then
         veg_list.push(@vegetable_stocks[i][0])
       else
         non_veg_list.push(@vegetable_stocks[i][0])
