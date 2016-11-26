@@ -24,7 +24,7 @@
        <%= if vegetable_stock[2].to_f != 0 then
             number_field_tag(vegetable_stock[0], vegetable_stock[2],:min => 0, :step => 0.01)
             else
-            number_field_tag(vegetable_stock[0],:min => 0, :step => 0.01)
+            number_field_tag(vegetable_stock[0], '', :min => 0, :step => 0.01)
             end
         %>
     </li>
