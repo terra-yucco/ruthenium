@@ -51,7 +51,8 @@ check_celebrate = ->
     will_veg_count = parseFloat(myChart.data.datasets[1].data[i])
     if isNaN(will_veg_count)
       will_veg_count = 0
-    if will_veg_count == current_veg_count
+    # 小数点以下1桁目を有効数字として判定
+    if format_froat(will_veg_count, 1) == format_froat(current_veg_count, 1)
       if will_veg_count != 0
         match_count = match_count + 1
     else
