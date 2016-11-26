@@ -6,16 +6,19 @@
     </ul>
 </div>
   <canvas id="myChart" width="400" height="400"></canvas>
+
+  <form>
+    <h5><b><font size="3"> 選択人数</font></b></h5>
+    <select name="nannninnbunn"  size="1" style="width:100px" onchange="serving_changed()">
+      <option value="" selected></option>
+      <option value="1"><font size="3"> 1人分 </font></option>
+      <option value="2"><font size="3"> 2人分 </font></option>
+      <option value="3"><font size="3"> 3人分 </font></option>
+      <option value="4"><font size="3"> 4人分 </font></option>
+    </select>
+  </form>
+
   <hr>
-   <FORM>
-    <H5><b><FONT size="3"> 選択人数</FONT></b></H5>
-    <SELECT name="nannninnbunn"  size="1" style="width:100px">
-    <OPTION value="hitoribunn"><FONT size="3"> 1人分 </FONT></OPTION>
-    <OPTION value="futaribunn"><FONT size="3"> 2人分 </FONT></OPTION>
-    <OPTION value="sannninnbunnn"><FONT size="3"> 3人分 </FONT></OPTION>
-    <OPTION value="yoninnbunn"><FONT size="3"> 4人分 </FONT></OPTION>
-    </SELECT>
-   </FORM>
 
   <% @dishes.each do |dish| %>
   <div class="checkbox-inline">
@@ -30,18 +33,21 @@
             :target => '_blank',
             :class => 'rakuten-recipe'
           ) %>
-          (<%= dish.serving %>人分)
+          (<span class="serving-number"><%= dish.serving %></span>人分)
         </h3>
       </label>
     </div>
   </div>
-  <table class="table">
+  <table class="table" data-original-serving="<%= dish.serving %>">
   <% @vegetable_stocks.to_a.each do |vegetable_stock| %>
     <% if (veg_count = dish.send(vegetable_stock[0])) != 0 then %>
-    <tr data-<%= vegetable_stock[0] %>="<%= veg_count %>"><!-- data-carrot="0.25" のような形式で野菜の数データに持つ -->
+    <tr data-<%= vegetable_stock[0] %>="<%= veg_count %>"
+        data-original-<%= vegetable_stock[0] %>="<%= veg_count %>">
+    <%# data-carrot="0.25" data-original-carrot="0.5"
+        のような形式で人数分計算後の現在の野菜の数と、元の野菜の数をデータに持つ %>
       <td><%= image_tag('veg_' + vegetable_stock[0].to_s + '.png', :size => '32x32') %></td>
       <td><%= vegetable_stock[1] %></td>
-      <td><%= veg_count %> 個</td>
+      <td><span class="veg-count"><%= veg_count %></span> 個</td>
     </tr>
     <% end %>
   <% end %>
@@ -49,27 +55,34 @@
   <hr>
   <% end %>
 
-
-  <hr>
   <h2>あと少し材料があれば、こんなレシピも作れます。</h2>
+  <hr>
 
   <% @non_dishes.each do |dish| %>
   <div>
     <div>
       <h3 class="recipe_title"
           style="background-image:url('<%= dish.img_url %>')">
-        <%= link_to(dish.recipe_title, "http://recipe.rakuten.co.jp/recipe/#{dish.recipe_id}/", :target => '_blank') %>
-        (<%= dish.serving %>人分)
+        <%= link_to(
+          dish.recipe_title, 
+          "http://recipe.rakuten.co.jp/recipe/#{dish.recipe_id}/",
+          :target => '_blank',
+          :class => 'rakuten-recipe'
+        ) %>
+        (<span class="serving-number"><%= dish.serving %></span>人分)
       </h3>
     </div>
   </div>
-  <table class="table">
+  <table class="table" data-original-serving="<%= dish.serving %>">
   <% @vegetable_stocks.to_a.each do |vegetable_stock| %>
     <% if (veg_count = dish.send(vegetable_stock[0])) != 0 then %>
-    <tr data-<%= vegetable_stock[0] %>="<%= veg_count %>"><!-- data-carrot="0.25" のような形式で野菜の数データに持つ -->
+    <tr data-<%= vegetable_stock[0] %>="<%= veg_count %>"
+        data-original-<%= vegetable_stock[0] %>="<%= veg_count %>">
+    <%# data-carrot="0.25" data-original-carrot="0.5"
+        のような形式で人数分計算後の現在の野菜の数と、元の野菜の数をデータに持つ %>
       <td><%= image_tag('veg_' + vegetable_stock[0].to_s + '.png', :size => '32x32') %></td>
       <td><%= vegetable_stock[1] %></td>
-      <td><%= veg_count %> 個</td>
+      <td><span class="veg-count"><%= veg_count %></span> 個</td>
     </tr>
     <% end %>
   <% end %>

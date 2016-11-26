@@ -20,6 +20,12 @@ for vegetable_stock in gon.vegetable_stocks
 # グラフ
 myChart = null
 
+# 数字(number)を小数点以下の有効桁数(digit)で四捨五入した数値を返す
+format_froat = (number, digit) ->
+  pow = Math.pow(10, digit)
+  return parseFloat(Math.round(number * pow) / pow).toFixed(digit)
+
+# 使い予定の野菜の数リストを取得
 get_will_list = ->
   will_list = new Array
   for veg_name in veg_list
@@ -32,6 +38,7 @@ get_will_list = ->
     will_list.push(veg_count)
   return will_list
 
+# 野菜の数の一致をチェックして、一致していたらお祝いを表示
 check_celebrate = ->
   # 一致した数
   match_count = 0
@@ -40,23 +47,46 @@ check_celebrate = ->
   for veg_name, i in veg_list
     current_veg_count = parseFloat(myChart.data.datasets[0].data[i])
     will_veg_count = parseFloat(myChart.data.datasets[1].data[i])
-    if will_veg_count == current_veg_count
+    # 小数点以下1桁目を有効数字として判定
+    if format_froat(will_veg_count, 1) == format_froat(current_veg_count, 1)
       if will_veg_count != 0
         match_count = match_count + 1
     else
       miss_match = true
 
-  # 暫定表示
   if !miss_match && 0 < match_count
     window.scroll(0,0)
     $("#puzzveg_rank").text(match_count)
     $('#modal_celebrate').modal('show')
 
-@check_changed = ->
+# 選択した人数(selected_serving)を各レシピに反映
+apply_serving = (selected_serving) ->
+  for veg_name in veg_list
+    vegs = document.querySelectorAll('[data-original-' + veg_name + ']')
+    for veg in vegs
+      original_serving = $(veg).closest('table').attr('data-original-serving')
+      original_veg_count = parseFloat($(veg).attr('data-original-' + veg_name))
+      veg_count = original_veg_count * selected_serving / original_serving
+      veg_count = format_froat(veg_count, 2)
+      $(veg).attr('data-' + veg_name, veg_count)
+      $(veg).find('.veg-count').text(veg_count)
+  $('.serving-number').text(selected_serving)
+
+# チャートを更新
+update_chart = ->
   will_list = get_will_list()
   myChart.data.datasets[1].data = will_list
   myChart.update()
 
+@serving_changed =->
+  selected_serving = $('[name=nannninnbunn]').val()
+  unless selected_serving == ""
+    apply_serving(selected_serving)
+    update_chart()
+    check_celebrate()
+
+@check_changed = ->
+  update_chart()
   check_celebrate()
 
 @show_chart = ->
