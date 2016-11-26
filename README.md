@@ -14,3 +14,6 @@
 
 ## heroku
 https://puzzveg.herokuapp.com/
+
+## enPit BizApp 2016に参加しての学び
+https://github.com/terra-yucco/ruthenium/issues/122
